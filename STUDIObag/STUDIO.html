@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDIO</title>
+    <style>
+
+    body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* 设置高度以便能滚动 */
+            overflow-y: auto;
+        }
+
+        #navbar {
+            background-color: #000000; /* 导航栏背景颜色 */
+            width: 100%; /* 导航栏宽度 */
+            position: fixed; /* 固定位置 */
+            top: 0; /* 初始位置在视口顶部 */
+            z-index: 1000; /* 确保在其他内容之上 */
+            transition: top 0.5s; /* 添加平滑过渡效果 */
+}
+
+        
+
+        .container {
+            width: 100vw;
+            height: 150vh;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        .section1 {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: hsl(14, 63%, 89%);
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .section2 {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column; /* 使用列方向布局 */
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .welcometextbig {
+            position: absolute;
+            top: 30%; /* 距离顶部30% */
+            left: 49%;
+            transform: translateX(-90%);
+            text-align: right; /* 右对齐文本 */
+            font-size: 72px;
+            font-weight: bold;
+        }
+
+        .welcomesmall {
+            position: absolute;
+            top: 42%; /* 距离顶部30% */
+            left: 49%;
+            transform: translateX(-90%);
+            font-size: 36px;
+            color: #f00056;
+            text-align: right; /* 右对齐文本 */
+        }
+
+        .welcomephoto img {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80%; /* 设置图片宽度为父元素宽度的50% */
+            max-width: 1600px; /* 限制最大宽度为400像素 */
+            height: auto; /* 保持图片的原始比例 */
+            display: block;
+        }
+
+        /* 添加胶囊形按钮样式 */
+        .start-button {
+            position: absolute;
+            top: 58%;
+            left: 42.3%;
+            outline: none; /* 去除按钮的轮廓线 */
+            border: none; /* 去除默认边框 */
+            width: 200px;
+            height: 50px;
+            background-color: rgb(40, 40, 40);
+            border-radius: 25px; /* 设置圆角半径为高度的一半，形成胶囊形状 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #f8366a;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            overflow: hidden;
+            transition: color 0.4s;
+        }
+
+        /* 鼠标点击时的效果 */
+        .start-button:active {
+            transform: scale(0.98); /* 点击时缩小 */
+        }
+
+        /* 当鼠标悬停时，改变背景和文字颜色 */
+        .start-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #50a1b7;
+            z-index: 0;
+            transition: transform 0.4s;
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+
+        .start-button:hover::before {
+            transform: scaleX(1);
+        }
+
+        .start-button span {
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s;
+        }
+
+        .start-button:hover span {
+            color: rgb(255, 115, 138);
+            outline: none; /* 去除按钮的轮廓线 */
+        }
+
+        /* 卡片样式 */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px; /* 卡片上方的间距 */
+        }
+
+        .card {
+            background-color: #e2e2e2;
+            color: white;
+            width: 400px; /* 设置卡片宽度 */
+            height: 500px; /* 设置卡片高度 */
+            margin: 35px; /* 卡片之间的间距 */
+            border-radius: 10px; /* 设置圆角 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            transition: transform 0.3s; /* 设置变换过渡效果 */
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* 悬停时放大效果 */
+        }
+
+
+     /* 定义导航栏样式 */
+    .transparent-navbar {
+        position: fixed; /* 固定在页面顶部 */
+        top: 0;          /* 定位到顶部 */
+        width: 100%;     /* 占据整个页面宽度 */
+        background-color: rgb(24, 24, 24); /* 导航栏背景 */
+        padding: 10px 0; /* 上下内边距，控制高度 */
+        z-index: 999;    /* 确保在其他内容之上 */
+        backdrop-filter: blur(5px); /* 背景模糊效果 */
+        font-family: Arial, sans-serif;
+    }
+    
+    /* 设置导航栏中的列表 */
+    .transparent-navbar ul {
+        list-style-type: none; /* 移除默认的列表样式 */
+        margin: 0;
+        padding: 0;
+        display: flex; /* 让导航项水平排列 */
+        justify-content: center; /* 水平居中对齐 */
+    }
+    
+    /* 每个导航项的样式 */
+    .transparent-navbar ul li {
+        margin: 0 20px; /* 导航项之间的间距 */
+    }
+    
+    /* 导航链接的样式 */
+    .transparent-navbar ul li a {
+        text-decoration: none; /* 移除下划线 */
+        color: white; /* 链接文字颜色 */
+        font-size: 18px; /* 字体大小 */
+        font-weight: bold; /* 粗体显示 */
+        padding: 5px 10px; /* 链接内边距，增加点击区域 */
+        transition: color 0.3s ease; /* 增加悬停时的平滑过渡效果 */
+    }
+    
+    /* 鼠标悬停时链接的样式 */
+    .transparent-navbar ul li a:hover {
+        color: #f00056; /* 悬停时变为橙色 */
+    }
+
+    </style>
+</head>
+
+<body>
+    <nav class="transparent-navbar" id="navbar">
+        <ul>
+            <li><a href="ZHUO Lin.html">HOME</a></li>
+            <li><a href="CONTACT.html">CONTACT</a></li>
+            <li><a href="ARTICLEs.html">ARTICLES</a></li>
+            <li><a href="STUDIObag/STUDIO.html">STUDIO</a></li>
+            <li><a href="NEWS.html">NEWS</a></li>
+        </ul>
+    </nav>
+    
+    
+
+    <div class="container">
+        <div class="section1">
+            <!-- 卷首语 -->
+            <div class="welcometextbig">
+                Welcome to my Studio
+            </div>
+            <br> <br> <br>
+            <div class="welcomesmall">
+                Here you can explore my diverse works in detail
+                <br>
+                Thank you very much for your interest
+                <br>
+                I hope you enjoy them :)
+            </div>
+            <!--侧面装饰-->
+            <div class="welcomephoto">
+                <img src="fristpage.png" alt="Oh...there is something wrong...">
+            </div>
+            <!-- 椭圆形按钮 -->
+            <button class="start-button" id="scrollButton">
+                <span>Start</span>
+            </button>
+        </div> <!--end of div1-->
+
+        <div class="section2" id="section2">
+            <!-- 卡片容器 -->
+            <div class="card-container">
+                <div class="card">Paintings</div>
+                <div class="card">Designs</div>
+                <div class="card">Photos</div>
+            </div>
+        </div> <!--end of div2-->
+    </div><!--end of div class="container"-->
+
+
+    <script>
+        // 获取导航栏元素
+        const navbar = document.getElementById('navbar');
+    
+       // 获取导航栏的高度
+       const navbarHeight = navbar.offsetHeight;
+
+window.addEventListener('scroll', function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // 检测滚动到 50vh 的位置
+    if (scrollTop > window.innerHeight * 0.5) {
+        // 隐藏导航栏
+        navbar.style.top = `-${navbarHeight}px`; // 隐藏导航栏
+    } else {
+        // 显示导航栏
+        navbar.style.top = "0"; // 显示导航栏
+    }
+});
+
+    
+        // 点击按钮滚动到 section 2
+        document.getElementById('scrollButton').addEventListener('click', function () {
+            document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+    
+</body>
+
+</html>
