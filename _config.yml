@@ -1,0 +1,4 @@
+theme: jekyll-theme-primer
+source: .
+destination: ./_site
+
