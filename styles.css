@@ -12,7 +12,7 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
 
         /* 设置网页默认背景颜色 */
     body {
-    background-image:url(image/littlenote.png) ;/*  hsl(14, 63%, 89%); 背景颜色 */
+    background:rgb(28, 28, 28);
     margin: 0; /* 清除默认的 body 外边距 */
     font-family: Arial, sans-serif;
 }   
@@ -20,9 +20,7 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
         
 
         .father{
-            background-image:url(image/littlenote.png);
-            background-size: cover; /* 使背景图片覆盖整个容器 */
-            background-position: center; /* 居中背景图片 */
+            
             display: flex;
             justify-content: center; /* 水平居中 */
             align-items: center;/* 垂直居中 */
@@ -31,7 +29,7 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
             position:relative;
         }
         .brown{
-            color: rgba(0, 0, 0);
+            color: hsl(14, 63%, 89%);;
             
         }
         .pinky{
@@ -39,7 +37,7 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
             
         }
         .link {
-            color: rgba(0, 0, 0); /* 确保链接颜色统一 */
+            color: hsl(14, 63%, 89%);
             text-decoration: none;
         }
         
@@ -50,6 +48,18 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
             flex-wrap: wrap;
             height: 50px;
             width: 280px;
+            
+        }
+
+        .right-son3 {
+
+            margin-left: -9px; /* 向左移动 */
+
+        }
+
+
+        .right-son4 {
+            margin-left: -10px; /* 向左移动 */
             
         }
 
@@ -126,6 +136,7 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
     --post-spacing: 1.78vw;
     --post-size: 25vw;
     --mask-size: 100vw;
+    --animation-duration: 20s; /* 动画持续时间*/
 }
 
 * {
@@ -139,13 +150,7 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
 }
-body {
-    background-image: url(image/littlenote.png);
-    background-repeat: repeat;
-    background-size: 300px 300px;
-    background-size: cover; /* 使背景图片覆盖整个容器 */
-    background-position: center; /* 居中背景图片 */
-}
+
 
 #banner {
     overflow: hidden;
@@ -203,48 +208,44 @@ body {
 .btn-group {
     position: relative;
     left: 47.5%;
-    margin-top: 30%; /* 将按钮往下移动50px */
+    margin-top: 35%; 
     height: 100px;
     width: 100px;
 
         
     
-    .btn {
-        
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        border: 1px solid hsl(338, 39%, 89%);
-        background-color: #fff;
-        margin: 10px;
-        cursor: pointer;
-        transition: 0.4s;
-        box-sizing: border-box;
-        &:hover {
-            transform: scale(1.2);
-            background-color: #ded6d6;
-            .icon {
-                fill: #fff;
-            }
-        }
+    
         .icon {
             width: 30px;
             height: 30px;
         }
         
     }
-}
+
 
 
 .img-list {
     left: 0;
+    transition: left 2s ease; /* 添加过渡效果 */
+    animation: scrollLeft linear infinite;
+    animation-duration: var(--animation-duration);
+    flex-wrap: nowrap; /* 确保不换行 */
 }
 
-@keyframes admission {
+/*@keyframes admission {
     0% {
         transform: translate(140vw, 0);
     }
     100% {
         transform: translate(13.39vw, 0);
+    }
+}*/
+
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100%));
     }
 }

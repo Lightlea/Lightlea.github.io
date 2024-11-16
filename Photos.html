@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Book Simulation</title>
+    <style>
+        :root {
+            --w: 250px;
+            --h: 300px; 
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('image/table.png'); /* 背景图像 */
+            background-size: cover; /* 使背景图片填满页面 */
+        }
+
+        /* 外部容器，用于整体平移 */
+        .container {
+            position: relative; /* 设置相对定位 */
+            display: flex;
+            flex-direction: column; /* 将书和按钮垂直排列 */
+            align-items: center;
+        }
+
+        #book {
+            height: var(--h);
+            width: calc(var(--w) * 2); /* 宽度为两倍的书页宽度 */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1600px; /* 3D 透视效果 */
+            transform-style: preserve-3d; /* 保持 3D 变换效果 */
+            margin-bottom: 40px; /* 书和按钮之间的距离 */
+        }
+
+        .book-cover {
+            /* 封面比页面每条边宽25px */
+            height: calc(var(--h) + 400px);
+            width: calc(var(--w) + 300px);
+            background-color: #ffffff;
+            position: absolute;
+            transform-style: preserve-3d; /* 保持 3D 变换效果 */
+            transition: transform 0.5s ease;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            transition: 1s;
+            transform-origin: left;
+            backface-visibility: visible;
+            border: 0.5px solid black;
+        }
+
+        .book-page {
+            height: var(--h);
+            width: var(--w);
+            position: absolute;
+            z-index: 2;
+            transform-origin: -25px;
+            background-size: cover;
+            backface-visibility: visible;
+        }
+
+        #control {
+            position: absolute;
+            bottom: -220px; /* 按钮距离书本底部的距离 */
+            left: 50%;
+            transform: translateX(-50%); /* 水平居中按钮 */
+        }
+
+        #control button {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            border: 0; /* 去除按钮边框 */
+            margin: 0 15px; /* 调整按钮间距 */
+            color: #fff; /* 字体颜色为白色 */
+            font-size: 20px; /* 字体大小 */
+            font-weight: bold; /* 字体加粗 */
+            border-radius: 50%; /* 将按钮设置为圆形 */
+            background-color: dimgrey; /* 按钮背景色为深灰色 */
+            outline: none; /* 去除默认的按钮轮廓 */
+            cursor: pointer; /* 鼠标悬停时的样式 */
+        }
+
+        #control button:hover {
+            background-color: #555; /* 鼠标悬停时改变背景色 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="book">
+            <div class="book-cover one-page"></div>
+            <div class="book-cover one-page"></div>
+            <div class="book-cover one-page"></div>
+            <div class="book-cover one-page"></div>
+            <div class="book-cover one-page"></div>
+            <div class="book-cover one-page"></div>
+            <div class="book-cover one-page"></div>
+            <div class="book-cover one-page"></div>
+        </div>
+
+        <div id="control">
+            <button>&lt;</button>
+            <button>&gt;</button>
+        </div>
+    </div>
+</body>
+</html>

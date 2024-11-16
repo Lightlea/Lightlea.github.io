@@ -7,6 +7,18 @@
     <title>STUDIO</title>
     <style>
 
+     a{text-decoration:none;}
+     color: rgba(49, 14, 1, 0.868); 
+        a:visited{color: rgba(0, 0, 0);}
+        a:active{color: rgba(0, 0, 0);}
+        a:hover{color: #f00056;}
+        a:before{color: rgba(0, 0, 0);}
+        a::after{color: rgba(0, 0, 0);}
+        .link {
+     color: rgba(0, 0, 0); 
+     text-decoration: none;
+}
+
     body {
             margin: 0;
             padding: 0;
@@ -15,7 +27,7 @@
         }
 
         #navbar {
-            background-color: #000000; /* 导航栏背景颜色 */
+            background-color: rgb(28, 28, 28);/* 导航栏背景颜色 */
             width: 100%; /* 导航栏宽度 */
             position: fixed; /* 固定位置 */
             top: 0; /* 初始位置在视口顶部 */
@@ -53,7 +65,7 @@
             flex-direction: column; /* 使用列方向布局 */
             justify-content: center;
             align-items: center;
-            background-color: black;
+            background-image: url(image/studio_background.png);
             margin: 0;
             position: relative;
             overflow: hidden;
@@ -68,6 +80,7 @@
             text-align: right; /* 右对齐文本 */
             font-size: 72px;
             font-weight: bold;
+            color: rgb(64, 54, 59);
         }
 
         .welcomesmall {
@@ -94,13 +107,13 @@
         /* 添加胶囊形按钮样式 */
         .start-button {
             position: absolute;
-            top: 58%;
-            left: 42.3%;
+            top: 63%;
+            left: 41.3%;
             outline: none; /* 去除按钮的轮廓线 */
             border: none; /* 去除默认边框 */
             width: 200px;
             height: 50px;
-            background-color: rgb(40, 40, 40);
+            background-color: rgb(64, 54, 59);
             border-radius: 25px; /* 设置圆角半径为高度的一半，形成胶囊形状 */
             display: flex;
             justify-content: center;
@@ -158,7 +171,7 @@
         }
 
         .card {
-            background-color: #e2e2e2;
+            background-color:  hsl(14, 63%, 89%);
             color: white;
             width: 400px; /* 设置卡片宽度 */
             height: 500px; /* 设置卡片高度 */
@@ -182,7 +195,7 @@
         position: fixed; /* 固定在页面顶部 */
         top: 0;          /* 定位到顶部 */
         width: 100%;     /* 占据整个页面宽度 */
-        background-color: rgb(24, 24, 24); /* 导航栏背景 */
+        background-color: rgb(28, 28, 28); /* 导航栏背景 */
         padding: 10px 0; /* 上下内边距，控制高度 */
         z-index: 999;    /* 确保在其他内容之上 */
         backdrop-filter: blur(5px); /* 背景模糊效果 */
@@ -224,10 +237,10 @@
 <body>
     <nav class="transparent-navbar" id="navbar">
         <ul>
-            <li><a href="ZHUO Lin.html">HOME</a></li>
-            <li><a href="CONTACT.html">CONTACT</a></li>
-            <li><a href="ARTICLEs.html">ARTICLES</a></li>
-            <li><a href="STUDIObag/STUDIO.html">STUDIO</a></li>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="ABOUTME.html">ABOUTME</a></li>
+            <li><a href="ARTICLE.html">ARTICLE</a></li>
+            <li><a href="STUDIO.html">STUDIO</a></li>
             <li><a href="NEWS.html">NEWS</a></li>
         </ul>
     </nav>
@@ -261,15 +274,16 @@
         <div class="section2" id="section2">
             <!-- 卡片容器 -->
             <div class="card-container">
-                <div class="card">Paintings</div>
-                <div class="card">Designs</div>
-                <div class="card">Photos</div>
+             <a href="AIGC.html"  class="card">AIGC</a>
+                <a href="Designs.html" class="card">Designs</a>
+                <a href="Photos.html" class="card">Photos</a>
             </div>
         </div> <!--end of div2-->
     </div><!--end of div class="container"-->
 
 
     <script>
+        
         // 获取导航栏元素
         const navbar = document.getElementById('navbar');
     

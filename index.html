@@ -21,7 +21,7 @@
         </div>
         
         <div class="right-container">
-            <a href="CONTACT.html" class="link">
+            <a href="ABOUTME.html" class="link">
             <div class="right-son1">CONTACT : </div>
         </a>
 
@@ -31,7 +31,7 @@
      
                
         <div class="right-son3">
-            <a href="STUDIObag/STUDIO.html" class="link">STUDIO :</div>
+            <a href="STUDIO.html" class="link">STUDIO :</div>
             </a>
            
             <div class="right-son4">
@@ -72,18 +72,12 @@
         </div>
     </div>
 
-    <!--next箭头-->
+    <!--next箭头 -->
 
-    <div class="btn-group">
-        <button class="btn next">
-        <span class="icon">&lt;  &gt;</span>
-        </button>
-    </div>
-   
     
     <div class="scroll">
         <div class="titreofscroll">
-            <p class="inline-block1">A QUICK VIEW OF MY WORKS</p>
+            
            
         </div>
 
@@ -93,144 +87,53 @@
 <!--java动效-->
 
 <script>
+    const imgListOne = document.querySelector('.img-list');
+    const imgBoxList = imgListOne.children;
+    const imgBoxCount = imgBoxList.length;
+    const root = document.documentElement;
 
-const imgListOne = document.querySelector('.img-list');
-// 获取图片类数组，将其转化成数组 //
-let imgBoxList = Array.from(document.querySelectorAll('.img-list .img-box'));
-const imgBoxCount = imgBoxList.length;
-const root = document.documentElement;
-const btnGroup = document.querySelector('.btn-group');
-const nextBtn = document.querySelector('.next.btn');
-const lastImgBox = document.getElementById('last-img-box')
-// 获取--post-spacing和--post-size的值
-const postSpacing = Number(getComputedStyle(root).getPropertyValue('--post-spacing').replace("vw", ""));
-const postSize = Number(getComputedStyle(root).getPropertyValue('--post-size').replace("vw", ""));
+    // 获取 --post-spacing 和 --post-size 的值，单位为 vw
+    const postSpacing = parseFloat(getComputedStyle(root).getPropertyValue('--post-spacing'));
+    const postSize = parseFloat(getComputedStyle(root).getPropertyValue('--post-size'));
 
-// 根据图片数量，动态获取img-list宽度
-let imgListLength = (postSize + postSpacing) * imgBoxCount;
-console.log(imgListLength);
-// 根据图片数量动态获取img-box的宽度
-const imgBoxLength = postSize + postSpacing;
+    // 计算每个图片框的宽度（包括间距）
+    const imgBoxWidth = postSize + postSpacing; // 单位：vw
 
-let index = 0;
-let timer = null;
-let animationTime = 0.5;
-// 初始化数据组元素的顺序，将最后一张图片放在第一位与html部分图片展示位置一致
-imgBoxList.unshift(imgBoxList.pop())
-// 设置imgListOne动画时间
-imgListOne.style.transition = `${animationTime}s ease`;
-//设置按钮出现时间
-setTimeout(function () {
-    btnGroup.style.opacity = '1';
-    btnGroup.style.bottom = '5%';
-}, animationTime * 1000);
+    // 初始化滚动参数
+    let offset = 0; // 初始位移
+    const speed = 0.1; // 滚动速度，值越大滚动越快（单位：vw）
 
-// 点击事件
-function cilckFun(flag) {
-    if (flag === 'next') {
-        index--;
-        console.log(index);
-        // 因为右边没有显示的图片较多，先整体向左移动
-        imgListOne.style.left = `${imgBoxLength * index}vw`;
-        setTimeout(function () {
-            imgListOne.style.transition = 'none';
-            // 当点击下一个累积达到图片数量，回到原点，重置变量和位置
-            if (Math.abs(index) === imgBoxCount) {
-                index = 0;
-                imgListOne.style.left = '0';
-                imgBoxList.forEach(item => {
-                    if (item.id === 'last-img-box') {
-                        item.style.transform = 'translateX(-160.68vw)';
-                    } else {
-                        item.style.transform = 'none';
-                    }
-                });
-            } else {
-                // 当第一张图片为last-img-box时，说明已经完成一轮播放
-                // 因此将其放在最后的位置，初始状态为-160.68vw
-                if (imgBoxList[0].id === 'last-img-box') {
-                    imgBoxList[0].style.transition = 'none';
-                    imgBoxList[0].style.transform = 'translateX(0px)';
-                } else if (index >= 0) {
-                    // 这种情况为了解决在点完第last,再点击next的回退问题
-                    // 再点击last之前没有添加transform属性，点击last以后则添加transform属性
-                    // 再次点击next按钮后应该不加transform！！！
-                    imgBoxList[0].style.transform = 'none';
-                } else {
-                    // 正常情况下，点击next，将最左图片移到最后
-                    imgBoxList[0].style.transform = 'translateX(160.68vw)';
-                }
-            }
-            // 模拟移动情况，将最左图片移到最后
-            imgBoxList.push(imgBoxList.shift());
-        }, animationTime * 1000);
-    } else {
-        // 上一张last
-        index++;
-        console.log(index);
-        // 模拟移动情况，把最右移到最前
-        imgBoxList.unshift(imgBoxList.pop());
-        // 因为左侧图片只会有一张，所以需要先移动图片到左侧
-        // 然后再进行imgListOne的移动
-        if (imgBoxList[0].id === 'last-img-box' && index != 0) {
-            // 当第一张图片为last-img-box说明完播一轮
-            // 因此此时相对于一开始的位置为-321.36vw
-            imgBoxList[0].style.transform = 'none';
-        } else if (index < 0) {
-            // 这种情况与点击next按钮出现的回退现象一致
-            imgBoxList[0].style.transform = 'none';
-        } else {
-            // 正常情况下点击last则将最右图移到最前
-            imgBoxList[0].style.transform = 'translateX(-160.68vw)';
+    function smoothScroll() {
+        offset -= speed; // 每帧移动 speed 个单位
+
+        // 当位移达到单个图片的宽度时，调整图片顺序和位移
+        if (Math.abs(offset) >= imgBoxWidth) {
+            // 移动第一张图片到列表末尾
+            imgListOne.appendChild(imgListOne.children[0]);
+
+            // 重置位移
+            offset += imgBoxWidth; // 调整 offset，使视觉上连续
         }
-        imgListOne.style.left = imgBoxLength * index + 'vw';
-        imgListOne.style.transition = 'none';
-        // 当点击下一个累积达到图片数量时，相当于要回到原点，则重置变量和位置
-        if (Math.abs(index) == imgBoxCount) {
-            index = 0;
-            setTimeout(function () {
-                imgListOne.style.transition = 'none';
-                imgListOne.style.left = '0';
-                imgBoxList.forEach(item => {
-                    if (item.id === 'last-img-box') {
-                        item.style.transform = 'translateX(-160.68vw)';
-                    } else {
-                        item.style.transform = 'none';
-                    }
-                });
-            }, animationTime * 1000);
-        }
+
+        imgListOne.style.transform = `translateX(${offset}vw)`; // 更新位移
+
+        requestAnimationFrame(smoothScroll); // 继续下一帧动画
     }
-    imgListOne.style.transition = animationTime + 's ease';
-}
 
-// 节流函数
-function throttle(fn, delay) {
-    return function () {
-        if (timer) {
-            return;
-        }
-        fn.apply(this, arguments);
-        timer = setTimeout(() => {
-            timer = null;
-        }, delay);
-    };
-}
+    // 启动平滑滚动动画
+    smoothScroll();
 
-nextBtn.onclick = throttle(() => cilckFun('next'), animationTime * 1000);
-
-<!-- 导航栏代码 -->
-  // 动态加载navbar.html内容到页面中
-  fetch('navbar.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('navbar').innerHTML = data;
-    })
-    .catch(error => console.log('Error loading the navbar:', error));
-
-
-
+    <!-- 导航栏代码 -->
+    // 动态加载 navbar.html 内容到页面中
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar').innerHTML = data;
+        })
+        .catch(error => console.log('Error loading the navbar:', error));
 </script>
+
+    
 </body>
 
 </html>
