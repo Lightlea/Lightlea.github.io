@@ -162,7 +162,7 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
     mask-position: center;
     mask-size: var(--mask-size);
     position: absolute;
-    top: 10%;
+    top: 50%;
     .img-wrapper {
         display: flex;
         position: absolute;

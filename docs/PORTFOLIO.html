@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+
+     a{text-decoration:none;}
+     color: rgba(49, 14, 1, 0.868); 
+        a:visited{color: rgba(0, 0, 0);}
+        a:active{color: rgba(0, 0, 0);}
+        a:hover{color: #f00056;}
+        a:before{color: rgba(0, 0, 0);}
+        a::after{color: rgba(0, 0, 0);}
+        .link {
+     color: rgba(0, 0, 0); 
+     text-decoration: none;
+}
+:root {
+            
+            --card-background: white;
+            --card-shadow: rgba(0, 0, 0, 0.2);
+            --card-border-radius: 8px;
+            --card-hover-scale: 1.05;
+            --gap: 60px; /* 卡片之间的间距 */
+            --padding: 0px; /* 内边距 */
+            --margin: 70px; /* 增加外边距 */
+            --font-family: Arial, sans-serif;
+            --card-width: 400px; /* 设定卡片宽度 */
+            --card-height: 600px; /* 设定卡片高度 */
+        }
+
+    body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* 设置高度以便能滚动 */
+            overflow-y: auto;
+        }
+
+        #navbar {
+            background-color: rgb(28, 28, 28);/* 导航栏背景颜色 */
+            width: 100%; /* 导航栏宽度 */
+            position: fixed; /* 固定位置 */
+            top: 0; /* 初始位置在视口顶部 */
+            z-index: 1000; /* 确保在其他内容之上 */
+            transition: top 0.5s; /* 添加平滑过渡效果 */
+}
+
+        
+
+        .container {
+            scroll-snap-type: y mandatory;
+            overflow-x: hidden; 
+        }
+
+        .section1 {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url(studio_background.png);
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden; 
+        }
+
+        .section2 {
+            width: 100%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column; /* 使用列方向布局 */
+            justify-content: center;
+            align-items: center;
+            background-image: url(studio_background.png);
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .welcometextbig {
+            position: absolute;
+            top: 30%; /* 距离顶部30% */
+            color: transparent; /* 字体颜色透明 */
+            -webkit-text-stroke: 1.5px rgb(110, 110, 110); /* 描边宽度和颜色 */
+            font-size: calc(80px + 2vw);
+            text-align: center; 
+            font-weight: bold;
+            
+        }
+
+        .welcomesmall {
+    position: absolute;
+    top: 50%; 
+    font-size: 24px; 
+    font-weight: 100; /* 轻字体 */
+    font-family: 'Roboto', sans-serif; /* 使用支持轻字重的字体 */
+    color: #f00056;;  
+    text-align: center; 
+}
+
+        
+
+       /* 添加胶囊形按钮样式 */
+.start-button {
+    position: absolute;
+    top: 63%;
+    
+    outline: none; 
+    border: 2px solid rgb(110, 110, 110);  
+    width: 200px;
+    height: 50px;
+    background-color: transparent;  /* 初始状态背景透明 */
+    border-radius: 25px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(110, 110, 110);  
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.4s ease;  /* 平滑过渡效果 */
+}
+
+/* 鼠标悬停时的效果 */
+.start-button:hover {
+    background-color: rgb(110, 110, 110); 
+    color: rgb(12, 12, 12); 
+    border-color: rgb(12, 12, 12); 
+}
+
+/* 鼠标点击时的效果 */
+.start-button:active {
+    transform: scale(0.98); 
+}
+
+
+        /* 卡片样式 */
+        .gallery {
+            display: grid; /* CSS Grid 瀑布流布局 */
+            grid-template-columns: repeat(3, 1fr); /* 每行显示4张卡片 */
+            gap: var(--gap); /* 卡片之间的间距 */
+            padding: var(--padding); /* 画廊的内边距 */
+            margin: var(--margin); /* 外边距，增加卡片与屏幕边缘的距离 */
+        }
+        
+        .card {
+            background: var(--card-background); /* 卡片背景色 */
+            box-shadow: 0 4px 8px var(--card-shadow); /* 阴影效果 */
+            overflow: hidden; /* 隐藏超出卡片边界的内容 */
+            transition: transform 0.2s; /* 动画效果 */
+            width: var(--card-width); /* 设置卡片宽度 */
+            height: var(--card-height); /* 设置卡片高度 */
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* 悬停时放大效果 */
+        }
+        .card img {
+            width: 100%; /* 图片宽度100% */
+            height: auto; /* 高度自适应 */
+            display: block; /* 避免图片下方出现空隙 */
+        }
+        
+        .card h2 {
+    padding: 5px; /* 标题的内边距 */
+    margin: 2px 10px; /* 上下边距2px，左右边距10px */
+    font-size: 20px; /* 标题字体大小 */
+    text-align: left; /* 标题左对齐 */
+       }
+
+        .card p {
+    padding: 5px; /* 段落的内边距 */
+    margin: -5px 10px; /* 上下边距2px，左右边距10px */
+    font-size: 16px; /* 段落字体大小 */
+    text-align: left; /* 段落左对齐 */
+}
+
+
+     /* 定义导航栏样式 */
+    .transparent-navbar {
+        position: fixed; /* 固定在页面顶部 */
+        top: 0;          /* 定位到顶部 */
+        width: 100%;     /* 占据整个页面宽度 */
+        background-color: rgb(28, 28, 28); /* 导航栏背景 */
+        padding: 10px 0; /* 上下内边距，控制高度 */
+        z-index: 999;    /* 确保在其他内容之上 */
+        backdrop-filter: blur(5px); /* 背景模糊效果 */
+        font-family: Arial, sans-serif;
+    }
+    
+    /* 设置导航栏中的列表 */
+    .transparent-navbar ul {
+        list-style-type: none; /* 移除默认的列表样式 */
+        margin: 0;
+        padding: 0;
+        display: flex; /* 让导航项水平排列 */
+        justify-content: center; /* 水平居中对齐 */
+    }
+    
+    /* 每个导航项的样式 */
+    .transparent-navbar ul li {
+        margin: 0 20px; /* 导航项之间的间距 */
+    }
+    
+    /* 导航链接的样式 */
+    .transparent-navbar ul li a {
+        text-decoration: none; /* 移除下划线 */
+        color: white; /* 链接文字颜色 */
+        font-size: 18px; /* 字体大小 */
+        font-weight: bold; /* 粗体显示 */
+        padding: 5px 10px; /* 链接内边距，增加点击区域 */
+        transition: color 0.3s ease; /* 增加悬停时的平滑过渡效果 */
+    }
+    
+    /* 鼠标悬停时链接的样式 */
+    .transparent-navbar ul li a:hover {
+        color: #f00056; /* 悬停时变为橙色 */
+    }
+
+    </style>
+</head>
+
+<body>
+    <nav class="transparent-navbar" id="navbar">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="ABOUTME.html">ABOUTME</a></li>
+            <li><a href="AIGC.html">AIGC</a></li>
+            <li><a href="PORTFOLIO.html">PORTFOLIO</a></li>
+            <li><a href="NEWS.html">NEWS</a></li>
+        </ul>
+    </nav>
+    
+    
+
+    <div class="container">
+        <div class="section1">
+            <!-- 卷首语 -->
+            <div class="welcometextbig">
+                Welcome to my PORTFOLIO
+            </div>
+            <br> <br> <br>
+            <div class="welcomesmall">
+                Diverse works, projets, plans in detail
+                
+            </div>
+          
+            <!-- 椭圆形按钮 -->
+            <button class="start-button" id="scrollButton">
+                <span>Start</span>
+            </button>
+        </div> <!--end of div1-->
+
+        <div class="section2" id="section2">
+            <!-- 卡片容器 -->
+            <div class="gallery">
+                <div class="card">Card 1
+                    <img src="asset/image/ceshi.jpg" alt="">
+                    <h2>Artwork Title 4</h2>
+                    <p>hrrrrrrrrrrrr</p></div>
+                <div class="card">Card 2
+                    <img src="asset/image/ceshi.jpg" alt="">
+                    <h2>Artwork Title 4</h2>
+                    <p>hrrrrrrrrrrrr</p>
+                </div>
+                <div class="card">Card 3
+                    <img src="asset/image/ceshi.jpg" alt="">
+                    <h2>Artwork Title 4</h2>
+                    <p>hrrrrrrrrrrrr</p>
+                </div>
+                <div class="card">Card 4
+                    <img src="asset/image/ceshi.jpg" alt="">
+                    <h2>Artwork Title 4</h2>
+                    <p>hrrrrrrrrrrrr</p>
+                </div>
+                <div class="card">Card 5
+                    <img src="asset/image/ceshi.jpg" alt="">
+                    <h2>Artwork Title 4</h2>
+                    <p>hrrrrrrrrrrrr</p>
+                </div>
+                <div class="card">Card 6 <img src="asset/image/ceshi.jpg" alt="">
+                    <h2>Artwork Title 4</h2>
+                    <p>hrrrrrrrrrrrr</p>
+                </div>
+                <div class="card">Card 7
+                    <img src="asset/image/ceshi.jpg" alt="">
+                    <h2>Artwork Title 4</h2>
+                    <p>hrrrrrrrrrrrr</p>
+                </div>
+                <div class="card">Card 8 <img src="asset/image/ceshi.jpg" alt="">
+                    <h2>Artwork Title 4</h2>
+                    <p>hrrrrrrrrrrrr</p>
+                </div>
+                <!-- 添加更多卡片 -->
+            </div>
+            
+        </div> <!--end of div2-->
+    </div><!--end of div class="container"-->
+
+
+    <script>
+        
+        // 获取导航栏元素
+        const navbar = document.getElementById('navbar');
+    
+       // 获取导航栏的高度
+       const navbarHeight = navbar.offsetHeight;
+
+window.addEventListener('scroll', function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // 检测滚动到 50vh 的位置
+    if (scrollTop > window.innerHeight * 0.5) {
+        // 隐藏导航栏
+        navbar.style.top = `-${navbarHeight}px`; // 隐藏导航栏
+    } else {
+        // 显示导航栏
+        navbar.style.top = "0"; // 显示导航栏
+    }
+});
+
+    
+        // 点击按钮滚动到 section 2
+        document.getElementById('scrollButton').addEventListener('click', function () {
+            document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+    
+</body>
+
+</html>
