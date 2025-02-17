@@ -219,6 +219,7 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
 
 
 #banner {
+    pointer-events: none;
     overflow: hidden;
     position: absolute;
     top: 50%;
@@ -241,7 +242,7 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
             display: inline-block;
             margin-right: var(--post-spacing);
             position: relative;
-            cursor: pointer;
+            /*cursor: pointer;暂时取消滚动图像的点击功能*/
 
             .info {
                 position: absolute;
