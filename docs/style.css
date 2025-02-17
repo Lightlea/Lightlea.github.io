@@ -2,7 +2,7 @@ a{text-decoration:none;}
 color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
         a:visited{color: rgba(0, 0, 0);}
         a:active{color: rgba(0, 0, 0);}
-        a:hover{color: #f00056;}
+        a:hover{color: #ff9500;}
         a:before{color: rgba(0, 0, 0);}
         a::after{color: rgba(0, 0, 0);}
         .link {
@@ -10,14 +10,19 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
     text-decoration: none;
 }
 
-
+@font-face {
+    font-family: "Helvetica";
+    src: url("Helvetica.woff2") format("woff2"),
+    font-weight: normal;
+    font-style: normal;
+}
 
         /* 设置网页默认背景颜色 */
     body {
     background-image: url(studio_background.png);
     background-color: rgb(28, 28, 28);
     margin: 0; /* 清除默认的 body 外边距 */
-    font-family: Arial, sans-serif;
+    font-family: "Helvetica", Arial, sans-serif;
     height: auto;
     overflow: visible;
     
@@ -38,13 +43,25 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
             
             
         }
+        .buttons-container {
+    display: flex;
+    align-items: center; /* 垂直居中按钮 */
+    margin-top: 10px; /* 保持与 .father 之间有 10px 的间距 */
+    display: flex;
+    gap: 10px; 
+    width: calc(60% + 20vw); /* 容器的宽度，适应屏幕 */
+    margin-left: 15%;
+        }
+        
         
         .ZHUO{
             color: hsl(0, 0%, 100%);;
             
         }
         .pinky{
-            color: #f00056;
+            background: linear-gradient(0deg,  #ff096b 0%, #ff0a43 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
             
         }
         .message{
@@ -87,7 +104,7 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
         }
 
         .box-n1, .box-n2, .box-n3 {
-            color: #f00056;    
+            color: #ff9500;    
             
         }
         .box-n3 { 
@@ -112,6 +129,40 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
                 align-items: flex-start;
             }
         }
+
+
+
+/* 单个按钮样式 */
+.cv-button, .works-button, .projects-button {
+    outline: none; 
+    border: 2px solid rgb(110, 110, 110);  
+    width: calc(30px + 5vw);  /* 自适应按钮宽度 */
+    height: calc(5px + 3vh);  /* 自适应按钮高度 */
+    background-color: transparent;  /* 背景透明 */
+    border-radius: 80px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(110, 110, 110);  
+    font-size: calc(4px + 1vw); /* 自适应按钮文字大小 */
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.4s ease;  /* 平滑过渡效果 */
+}
+
+/* 鼠标悬停时的样式 */
+.cv-button:hover, .works-button:hover, .projects-button:hover {
+    background: linear-gradient(0deg,  #ff096b 0%, #ff0a43 100%);
+    color: rgb(12, 12, 12);
+    border-color: rgb(12, 12, 12);
+}
+
+/* 鼠标点击时的样式 */
+.cv-button:active, .works-button:active, .projects-button:active {
+    transform: scale(0.95); 
+}
+
 
     .scroll {    
         
@@ -151,6 +202,7 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
     --post-size: 25vw;
     --mask-size: 100vw;
     --animation-duration: 20s; /* 动画持续时间*/
+    --card-gap: 2vw;
 }
 
 * {
@@ -168,15 +220,14 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
 
 #banner {
     overflow: hidden;
-    position: relative;
+    position: absolute;
+    top: 50%;
     width: 100vw;
     height: calc(var(--post-size) / 0.72);
     mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDQwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDE0NDAgNTAwIiBpZD0iaiI+CiAgPHBhdGggZmlsbD0icmdiKDIwMCwyMDAsMjAwKSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMCAwczI3NS4wNCAxMDAgNzIwIDEwMFMxNDQwIDAgMTQ0MCAwdjUwMHMtMjc1LjA0LTEwMC03MjAtMTAwUzAgNTAwIDAgNTAwVjB6Ii8+Cjwvc3ZnPgo=);
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: var(--mask-size);
-    position: absolute;
-    top: 50%;
     .img-wrapper {
         display: flex;
         position: absolute;
@@ -262,34 +313,39 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
         }
     }
 
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    gap: 35px; 
-    padding: 20px; /* 卡片容器的内边距 */
-    background-image: url(studio_background.png);
-    background-color: rgb(28, 28, 28); 
-    margin-top: 20px;
-    width: 100%; position: relative;
-}
-
-.card {
-    background-color: rgb(28, 28, 28); 
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px; /* 卡片宽度 */
-    height: 450px;
-    padding: 15px;
-    text-align: center; 
-    transition: transform 0.3s, box-shadow 0.3s;
-}
+    .card-container {
+         /* 使用 CSS 多栏布局，实现瀑布流效果 */
+        column-count: 4;
+        column-gap: var(--card-gap);
+        padding: var(--card-gap);
+        background-color: rgb(10, 10, 10);
+        width: 100%;
+        position: relative;
+        padding-top: 50px; /* 增加上方内边距 */
+    }
+    
+    .card {
+         /* 为了适应 columns 布局，设置为 inline-block */
+        display: inline-block;
+        width: 100%;
+  margin: 0 0 var(--card-gap) 0; /* 下边距实现纵向间隔 */
+  background-image: url(studio_background.png);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+    }
+    
+    
 
 .card img {
-    width: 100%; /* 图片宽度占满卡片 */
-    height: 80%;
+    display: block;
+    max-width: 100%; /* 保证图片不会超出容器宽度 */
+    height: auto;    /* 高度自动调整，保持比例 */
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin: 0 auto 10px; /* 上下外边距，左右自动居中 */
 }
 
 .card h3 {
@@ -310,4 +366,119 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
 
 
 
+/* 根据屏幕宽度调整列数 */
+@media (max-width: 1200px) {
+    .card-container {
+      column-count: 3;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .card-container {
+      column-count: 2;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card-container {
+      column-count: 1;
+    }
+  }
 
+/* 弹窗样式 */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 90vw;  /* 限制最大宽度 */
+    max-height: 90vh; /* 限制最大高度 */
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+     /* 添加响应式适配 */
+     max-width: 90%;  /* 在小屏幕上自动缩小 */
+     max-height: 90vh; /* 防止超出视口高度 */
+ }
+}
+
+.popup-content img {
+    max-width: 80vw;  /* 图片最大宽度不超过视口的 80% */
+    max-height: 80vh; /* 图片最大高度不超过视口的 80% */
+    min-width: 200px; /* 图片最小宽度 200px */
+    min-height: 200px; /* 图片最小高度 200px */
+    object-fit: contain; /* 保持图片比例 */
+    border-radius: 8px; /* 圆角 */
+    width: auto; /* 保持图片比例 */
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+
+/* 关闭按钮 */
+.close {
+    position: absolute;
+    top: 10%;   
+    right: 10%; 
+    font-size: 70px; 
+    cursor: pointer;
+    color: white;
+    background: none; 
+    border: none; 
+    padding: 0;
+    z-index: 1100; /* 确保 X 处于最上层 */
+}
+    
+.close:hover {
+    color: #ff9500;
+}
+/* Footer 样式 */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    z-index: 1000;  /* 确保在其他内容之上 */
+}
+
+.footer p {
+    margin: 0;
+    padding: 0;
+}
+
+/* 可选：让 footer 在悬停时显示不同的效果 */
+.footer:hover {
+    background-color: #000000;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+.footer-link {
+    color:  #ff096b;  /* 设置链接的正常颜色 */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* 鼠标悬停时的颜色变化 */
+.footer-link:hover {
+    color: #f00056; /* 鼠标悬停时的颜色 */
+    text-decoration: underline;
+}

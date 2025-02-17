@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+  <style>
+    /* 通用样式 */
+    a {
+      text-decoration: none;
+    }
+    a:visited {
+      color: rgba(0, 0, 0);
+    }
+    a:active {
+      color: rgba(0, 0, 0);
+    }
+    a:hover {
+      color:  #ff096b ;
+    }
+
+    :root {
+      --card-background: url(studio_background.png);
+      --card-shadow: rgba(0, 0, 0, 0.3);
+      --card-border-radius: 8px;
+      --card-hover-scale: 1.05;
+      --gap: 60px;
+      --padding: 0px;
+      --margin: 70px;
+      --font-family: "Helvetica", Arial, sans-serif;
+      --card-width: 400px;
+      --card-height: 600px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow-y: auto;
+      font-family: var(--font-family);
+    }
+
+    #navbar {
+      background-color: rgb(28, 28, 28);
+      width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      transition: top 0.5s;
+    }
+
+    .container {
+      scroll-snap-type: y mandatory;
+      overflow-x: hidden;
+    }
+
+    /* section1 样式 */
+    .section1 {
+      width: 100%;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      background-color: rgb(15, 15, 15);
+      margin: 0;
+      position: relative;
+      padding: 20px;
+      color: white;
+    }
+
+    .welcometextbig {
+      text-align: center;
+      font-size: calc(60px + 2vw);
+      margin-top: 5%;
+      margin-bottom: 50px;
+      background: linear-gradient(0deg,  #ff096b 0%, #ff0a43 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* gallery 样式 */
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--gap);
+      padding: var(--padding);
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .card {
+      background-image: var(--card-background);
+      border-radius: var(--card-border-radius);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 1000px;
+      height: 600px;
+      padding: 20px;
+      text-align: left;
+      /* 将过渡时间延长，并采用 ease-in-out */
+      transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out, filter 0.5s ease-in-out;
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 50%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .small-img {
+    transform: scale(0.8);
+    display: block; /* 避免 inline 间隙 */
+    margin: auto; /* 确保居中 */
+}
+
+    .card-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 20px;
+      padding-right: 100px;
+     
+    }
+
+    .card h3 {
+      font-size: 48px;
+      margin: 10px 0;
+      color: white;
+      font-weight: bold;
+    }
+
+    .card p {
+      font-size: 24px;
+      color: #9d9d9d;
+      line-height: 1.5;
+    }
+
+    .card:hover {
+      /* hover时依然保留向上位移效果 */
+      transform: translateY(-10px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    /* 导航栏样式 */
+    .transparent-navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgb(28, 28, 28);
+      padding: 10px 0;
+      z-index: 999;
+      backdrop-filter: blur(5px);
+      font-family: Arial, sans-serif;
+    }
+
+    .transparent-navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .transparent-navbar ul li {
+      margin: 0 20px;
+    }
+
+    .transparent-navbar ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 5px 10px;
+      transition: color 0.3s ease;
+    }
+
+    .transparent-navbar ul li a:hover {
+      color:  #ff096b ;
+    }
+
+    /* Fade-in 动画效果（初始加载） */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="transparent-navbar" id="navbar">
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="CV_Lin_ZHUO.pdf">MON CV</a></li>
+      <li><a href="Projects.html">PROJECTS</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <!-- section1 -->
+    <div class="section1">
+      <div class="welcometextbig">
+        PORTFOLIO
+      </div>
+      <!-- gallery 在 section1 内部 -->
+      <div class="gallery">
+        <div class="card">
+          <img src="asset/image/nano_card.png" alt="Artwork" />
+          <div class="card-content">
+            <h3>App Mobile</h3>
+            <p>
+              UI Design pour l'application mobile associée à une bague connectée.
+              <br>
+              Réalisé avec Figma, Adobe Illustrator et Adobe Photoshop.
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <img class="small-img" src="asset/image/Balloonpappy3.png" alt="Artwork" />
+          <div class="card-content">
+            <h3>Coming Soon</h3>
+            <p>🚧 En cours de mise en page... 🚧</p>
+          </div>
+        </div>
+        <div class="card">
+          <img class="small-img" src="asset/image/Balloonpappy4.png" alt="Artwork" />
+          <div class="card-content">
+            <h3>Coming Soon</h3>
+            <p>💭 En phase de conception... 💭</p>
+          </div>
+        </div>
+        <div class="card">
+          <img class="small-img" src="asset/image/Balloonpappy2.png" alt="Artwork" />
+          <div class="card-content">
+            <h3>Coming Soon</h3>
+            <p>💭 En phase de conception... 💭</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 导航栏滚动隐藏效果
+    const navbar = document.getElementById('navbar');
+    const navbarHeight = navbar.offsetHeight;
+    window.addEventListener('scroll', function () {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > window.innerHeight * 0.5) {
+        navbar.style.top = `-${navbarHeight}px`;
+      } else {
+        navbar.style.top = "0";
+      }
+    });
+
+    // 为卡片添加 fade-in 动画效果（初始加载）
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    cards.forEach(card => {
+      card.classList.add('fade-in');
+      observer.observe(card);
+    });
+
+    // 新增动态效果：根据卡片距离视口中心的距离平滑调整模糊和缩放效果
+    window.addEventListener('scroll', () => {
+  const viewportHeight = window.innerHeight;
+  const centerY = viewportHeight / 2;
+  const maxDistance = 600; // 当距离达到...时达到最大效果
+  cards.forEach(card => {
+    const rect = card.getBoundingClientRect();
+    const cardCenterY = rect.top + rect.height / 2;
+    const distance = Math.abs(cardCenterY - centerY);
+    const normalized = Math.min(distance / maxDistance, 1);
+    // 中心卡片保持 scale = 1；远离中心的卡片缩放至0.8（减少20%）
+    const dynamicScale = 1 - 0.2 * normalized;
+    // 远离中心的卡片模糊最多 2px；中心无模糊
+    const dynamicBlur = normalized * 2;
+    card.style.filter = `blur(${dynamicBlur}px)`;
+    card.style.transform = `scale(${dynamicScale})`;
+      });
+    });
+   
+  // 获取第一张卡片
+  const firstCard = document.querySelector(".gallery .card");
+
+  // 监听点击事件，跳转至 NaNo Ring.html
+  firstCard.addEventListener("click", function () {
+    window.location.href = "NaNo Ring.html";
+  });
+  
+
+
+  </script>
+</body>
+</html>

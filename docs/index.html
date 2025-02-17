@@ -9,7 +9,6 @@
 </head>
 
 <body>
-    
    <!--  <div id="navbar"></div> 插入导航栏内容 -->
     <!-- <div style="height: 50px;"></div> 添加50px高度的占位符 -->
     <!--抬头-->
@@ -18,56 +17,63 @@
             <span class="ZHUO" style="font-size: 68px;">👋 Hi, I'm ZHUO      </span>
             <span class="pinky" style="font-size: 68px;">Lin</span><br>
             <span class="message">Looking for a UI design internship.</span>
+             <!-- Buttons Container -->
+    <div class="buttons-container">
+        <a href="CV_Lin_ZHUO.pdf" target="_blank">
+            <button class="cv-button">CV</button>
+        </a>
+        <button class="works-button" id="scrollButton">Works</button>
+        <a href="Projects.html">
+            <button class="projects-button">Projects</button>
+        </a>
+    </div>
           
         </div> </div>
-        
+        <!-- 
         <div class="right-container">
-            <a href="ABOUTME.html" class="link">
-            <div class="right-son1">CONTACT : </div>
-        </a>
+            <a href="About Me.html" class="link">
+            <div class="right-son1">ABOUTE ME : </div>
+        </a>-->
 
-        <a href="AIGC.html" class="link">
-            <div class="right-son2">AIGC :</div>
-        </a>
-               
-        <a href="PORTFOLIO.html" class="link">
-            <div class="right-son3">PORTFOLIO :</div>
-        </a>
+   
+         <!--       
+        <a href="Projects.html" class="link">
+            <div class="right-son3">STUDIO :</div>
+        </a>-->
            
-        <a href="NEWS.html" class="link">
-            <div class="right-son4">NEWS :</div>
-        </a>
-            
+       
+          <!--   
             <span class="language-container">
                 <span class="box-n1">English</span>
                 <span class="box-n2">Français</span>
                 <span class="box-n3">简体汉语</span>
             </span>
-        </div>
+        </div>-->
    
-    
-
+        
 
     <!--滚动式音像作品展示区/-->
     <div id="banner">
         <div class="img-list img-wrapper">
             <div class="img-box">
-                <img src="asset/image/Rodin.jpg" alt="">
+                <img src="asset/image/bubbles6.png" alt="">
             </div>
             <div class="img-box">
-                <img src="asset/image/deerinpixel.png" alt="">
+                <img src="asset/image/bubbles2.png" alt="">
             </div>
             <div class="img-box">
-                <img src="asset/image/kitteninpixel.png" alt="">
+                <img src="asset/image/bubbles3.png" alt="">
             </div>
             <div class="img-box">
-                <img src="asset/image/Venezuelan Poodle Moth.jpg" alt="">
+                <img src="asset/image/bubbles4.png" alt="">
             </div>
+
             <div class="img-box">
-                <img src="asset/image/wenquan.jpeg" alt="">
+                <img src="asset/image/bubbles7.png" alt="">
             </div>
+
             <div class="img-box" id="last-img-box">
-                <img src="asset/image/Kyrin.webp" alt="">
+                <img src="asset/image/bubbles5.png" alt="">
             </div>
         </div>
     </div>
@@ -79,41 +85,89 @@
     </div>
 
 <!-- 卡片流 -->
-<div class="card-container">
-    <div class="card">
-        <img src="asset/image/Kyrin.webp" alt="Card Image 1">
-        <h3>Card Title 1</h3>
-        <p>Description of the card 1 goes here.</p>
+<div class="card-container" id="card-container">
+    <div class="card" data-image="asset/image/wenquan.jpeg" 
+    data-title="Card Title 1" data-description="This is a detailed">
+        <img src="asset/image/BalloonpappyJony.png" alt="Card Image 1">
+        <h3>Balloonpappy 1</h3>
+        <p>Jan. 2025; Adobe Photoshop; Adobe Illustrator;</p>
     </div>
-    <div class="card">
-        <img src="asset/image/Kyrin.webp"  alt="Card Image 2">
-        <h3>Card Title 2</h3>
-        <p>Description of the card 2 goes here.</p>
+    <div class="card" data-image="asset/image/wenquan.jpeg" 
+    data-title="Card Title 1" data-description="This is a detailed">
+        <img src="asset/image/Balloonpappy11.png"  alt="Card Image 2">
+        <h3>Balloonpappy 2</h3>
+        <p>Jan. 2025; Adobe Photoshop; Adobe Illustrator;</p>
     </div>
-    <div class="card">
-        <img src="asset/image/Kyrin.webp"  alt="Card Image 3">
-        <h3>Card Title 3</h3>
-        <p>Description of the card 3 goes here.</p>
+    <div class="card" data-image="asset/image/wenquan.jpeg" 
+    data-title="Card Title 1" data-description="This is a detailed">
+        <img src="asset/image/Balloonpappy9.png"  alt="Card Image 3">
+        <h3>Balloonpappy 3</h3>
+        <p>Jan. 2025; Adobe Photoshop; Adobe Illustrator;</p>
     </div>
-    <div class="card">
-        <img src="asset/image/Kyrin.webp"  alt="Card Image 4">
-        <h3>Card Title 4</h3>
-        <p>Description of the card 4 goes here.</p>
+
+    <div class="card" data-image="asset/image/wenquan.jpeg" 
+    data-title="Card Title 1" data-description="This is a detailed">
+        <img src="asset/image/poster1.png"  alt="Card Image 4">
+        <h3>Poster : Night of the Vibes</h3>
+        <p>Jan. 2024; Adobe Photoshop; Adobe Illustrator;</p>
     </div>
-    <div class="card">
-        <img src="asset/image/Kyrin.webp"  alt="Card Image 5">
-        <h3>Card Title 5</h3>
-        <p>Description of the card 5 goes here.</p>
+
+    <div class="card" data-image="asset/image/wenquan.jpeg" 
+    data-title="Card Title 1" data-description="This is a detailed">
+        <img src="asset/image/ComfyUI_temp_lascs_00003_.png"  alt="Card Image 5">
+        <h3>AIGC 2</h3>
+        <p>Comfy UI; Flux-dev-fp8 (non commercial);</p>
     </div>
-    <div class="card">
-        <img src="asset/image/Kyrin.webp"  alt="Card Image 6">
-        <h3>Card Title 6</h3>
-        <p>Description of the card 6 goes here.</p>
+    <div class="card" data-image="asset/image/wenquan.jpeg" 
+    data-title="Card Title 1" data-description="This is a detailed">
+        <img src="asset/image/ComfyUI_temp_lascs_00005_.png"  alt="Card Image 6">
+        <h3>AIGC 1</h3>
+        <p>Comfy UI; Flux-dev-fp8 (non commercial);</p>
+    </div>
+    
+    <div class="card" data-image="asset/image/wenquan.jpeg" 
+    data-title="Card Title 1" data-description="This is a detailed"
+    style="width: 250px; height: 350px;">
+        <img src="asset/image/deerinpixel.png"  alt="Card Image 4"
+        style="width: 170px; height: 250px;">
+        <h3>Pixel art 3</h3>
+        <p>Aug. 2023; Krita;</p>
+    </div>
+
+    <div class="card" data-image="asset/image/wenquan.jpeg" 
+    data-title="Card Title 1" data-description="This is a detailed"
+    style="width: 250px; height: 300px;">
+        <img src="asset/image/wenquan.png"  alt="Card Image 4"
+        style="width: 170px; height: 170px;">
+        <h3>Pixel art 1</h3>
+        <p>Jun. 2020; Adobe Photoshop;</p>
+    </div>
+
+    <div class="card" data-image="asset/image/wenquan.jpeg" 
+    data-title="Card Title 1" data-description="This is a detailed"
+    style="width: 250px; height: 300px;">
+    
+        <img src="asset/image/kitteninpixel.png"  alt="Card Image 4"
+        style="width: 170px; height: 170px;">
+        <h3>Pixel art 2</h3>
+        <p>Aug. 2023; Krita;</p>
+    </div>
+    <div class="card" data-image="asset/image/wenquan.jpeg" 
+    data-title="Card Title 1" data-description="This is a detailed">
+        <img src="asset/image/Venezuelan Poodle Moth.png"  alt="Card Image 4" >
+        <h3>Works 1</h3>
+        <p>Aug. 2020; Adobe Photoshop;</p>
     </div>
     <!-- 添加更多卡片 -->
 </div>
 
-   
+      <!-- Popup -->
+       <div id="popup" class="popup">
+        <span class="close">&times;</span>
+        <div class="popup-content">
+        <img id="popup-img" src="" alt="Popup Image">
+        </div>
+       </div>
 
     
    
@@ -165,9 +219,69 @@
             document.getElementById('navbar').innerHTML = data;
         })
         .catch(error => console.log('Error loading the navbar:', error));
+
+    // 弹窗的script
+    document.addEventListener("DOMContentLoaded", function() {
+        const cards = document.querySelectorAll(".card");
+        const popup = document.getElementById("popup");
+        const popupImg = document.getElementById("popup-img");
+        const closeBtn = document.querySelector(".close");
+
+    // 卡片点击事件
+    cards.forEach(card => {
+    card.addEventListener("click", function() {
+        const imageSrc = card.querySelector("img").src; // 直接获取 img 的 src
+        popupImg.src = imageSrc;
+ // JS 额外设置最小最小尺寸
+        popupImg.style.minWidth = "500px";
+        popupImg.style.minHeight = "500px";
+        popupImg.style.maxWidth = "80vw";   
+        popupImg.style.maxHeight = "80vh";  
+        popup.style.display = "flex";
+            });
+        });
+
+     // 关闭弹窗
+     closeBtn.addEventListener("click", function () {
+        popup.style.display = "none";
+    });
+
+    // 点击弹窗外部关闭
+    popup.addEventListener("click", function(event) {
+            if (event.target === popup) {
+                popup.style.display = "none";
+            }
+        });
+    });
+
+
+    window.addEventListener('scroll', function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // 检测滚动到 50vh 的位置
+    if (scrollTop > window.innerHeight * 0.5) {
+        // 隐藏导航栏
+        navbar.style.top = `-${navbarHeight}px`; // 隐藏导航栏
+    } else {
+        // 显示导航栏
+        navbar.style.top = "0"; // 显示导航栏
+    }
+});
+
+    
+        // 点击按钮滚动到 card-container
+        document.getElementById('scrollButton').addEventListener('click', function () {
+            document.getElementById('card-container').scrollIntoView({ behavior: 'smooth' });
+        });
+  
 </script>
 
     
 </body>
+<!--Footer -->
+<div class="footer">
+    <p>© Some of the code implementations on this page are based on <a href="https://gitee.com/mao-yongyao/elliptical-rotation-chart/tree/master" target="_blank" class="footer-link">This Project</a> and is licensed under the GNU General Public License (GPL) Version 2.</p>
+</div>
+</div>
 
 </html>

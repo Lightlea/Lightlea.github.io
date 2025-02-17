@@ -7,7 +7,12 @@
 
 
 <style>
-
+ @font-face {
+    font-family: "Helvetica";
+    src: url("Helvetica.woff2") format("woff2"),
+    font-weight: normal;
+    font-style: normal;
+}
 /* 定义导航栏样式 */
     .transparent-navbar {
         position: fixed; /* 固定在页面顶部 */
@@ -17,7 +22,7 @@
         padding: 10px 0; /* 上下内边距，控制高度 */
         z-index: 999;    /* 确保在其他内容之上 */
         backdrop-filter: blur(5px); /* 背景模糊效果 */
-        font-family: Arial, sans-serif;
+        font-family: "Helvetica", Arial, sans-serif;
     }
     
     /* 设置导航栏中的列表 */
@@ -46,7 +51,7 @@
     
     /* 鼠标悬停时链接的样式 */
     .transparent-navbar ul li a:hover {
-        color: #f00056; /* 悬停时变为橙色 */
+        color:  #ff096b 
     }
 </style>
 </head>
@@ -58,11 +63,8 @@
 <!-- navbar.html -->
     <ul>
         <li><a href="index.html">HOME</a></li>
-        <li><a href="ABOUTME.html">ABOUTME</a></li>
-        <li><a href="AIGC.html">AIGC</a></li>
-        <li><a href="PORTFOLIO.html">PORTFOLIO</a></li>
-        <li><a href="NEWS.html">NEWS</a></li>
-        
+        <li><a href="docs/CV_Lin_ZHUO.pdf">MON CV</a></li>
+        <li><a href="Projects.html">PROJECTS</a></li>
         
     </ul>
 </nav>

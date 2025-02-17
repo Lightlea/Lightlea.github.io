@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Mobile pour NaNo Ring</title>
+  <style>
+    /* 全局重置 */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+    /* 主要内容容器 */
+    .container {
+      padding: 20px;
+      text-align: center;
+    }
+    .image-container {
+      background-color: white;
+      display: inline-block;
+      padding: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .large-image img {
+      width: 100%;
+      max-width: 1225px;
+      height: auto;
+    }
+    img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+    }
+    /* 页脚样式 */
+    .footer {
+      margin-top: 20px;
+      padding: 10px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <!-- 用于动态加载导航栏的容器 -->
+  <div id="navbar-container"></div>
+  
+  <div class="container">
+    <div class="image-container large-image">
+      <img src="asset/image/nano_pre.png" alt="产品1">
+    </div>
+    
+    <div class="image-container">
+      <img src="asset/image/nano_cover.png" alt="产品1">
+    </div>
+    <div class="image-container">
+      <img src="asset/image/nano_sommaire.png" alt="产品2">
+    </div>
+    <div class="image-container">
+      <img src="asset/image/nano_app1.png" alt="产品2">
+    </div>
+    <div class="image-container">
+      <img src="asset/image/nano_app2.png" alt="产品3">
+    </div>
+    <div class="image-container">
+      <img src="asset/image/nano_app3.png" alt="产品3">
+    </div>
+    <div class="image-container">
+      <img src="asset/image/nano_app4.png" alt="产品3">
+    </div>
+    <div class="image-container">
+      <img src="asset/image/nano_app5.png" alt="产品3">
+    </div>
+    <div class="image-container">
+      <img src="asset/image/nano_app6.png" alt="产品3">
+    </div>
+    <div class="image-container">
+      <img src="asset/image/nano_style.png" alt="产品3">
+    </div>
+    <div class="image-container">
+      <img src="asset/image/nano_personae1.png" alt="产品3">
+    </div>
+    <div class="image-container">
+      <img src="asset/image/nano_personae2.png" alt="产品3">
+    </div>
+    <div class="image-container">
+      <img src="asset/image/nano_personea0.png" alt="产品3">
+    </div>
+    
+    <div class="footer">
+      <p>
+        Les textes des personas ont été rédigés par mon camarade Caroline ; Je me suis uniquement occupé de la mise en page.<br>
+        Les composants open source utilisés, en respectant scrupuleusement les licences associées. Remercie les créateurs pour leurs travails.
+      </p>
+    </div>
+  </div>
+  
+  <script>
+    // 动态加载 navbar.html 内容到页面中
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        // 假设 navbar.html 文件包含完整的 <nav class="transparent-navbar">...</nav>
+        document.getElementById('navbar-container').innerHTML = data;
+  
+        // 获取加载后的导航栏元素，并添加滚动隐藏效果
+        const navbar = document.querySelector('.transparent-navbar');
+        if (navbar) {
+          const navbarHeight = navbar.offsetHeight;
+          window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            navbar.style.top = (scrollTop > window.innerHeight * 0.5) ? `-${navbarHeight}px` : "0";
+          });
+        }
+      })
+      .catch(error => console.log('Error loading the navbar:', error));
+  </script>
+</body>
+</html>
