@@ -19,22 +19,26 @@
       padding: 20px;
       text-align: center;
     }
+    /* 图片容器：默认状态下每个容器宽度固定，居中显示 */
     .image-container {
       background-color: white;
       display: inline-block;
       padding: 10px;
       margin-bottom: 20px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 600px;  /* 默认图片最大宽度 */
     }
+    /* 大图容器：在默认状态下可更宽 */
+    .large-image {
+      max-width: 1225px;
+    }
+    /* 图片默认样式：宽度100%，保持比例 */
+    .image-container img,
     .large-image img {
       width: 100%;
-      max-width: 1225px;
       height: auto;
-    }
-    img {
-      width: 100%;
-      max-width: 600px;
-      height: auto;
+      display: block;
     }
     /* 页脚样式 */
     .footer {
@@ -44,10 +48,24 @@
       font-size: 14px;
       color: #666;
     }
+    /* 响应式设计：当窗口宽度小于768px时 */
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+      .image-container {
+        /* 宽度全屏显示，同时减少内边距 */
+        width: 100%;
+        max-width: 100%;
+        padding: 5px;
+        margin: 0 auto 20px;
+        box-shadow: none;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- 用于动态加载导航栏的容器 -->
+  <!-- 动态加载导航栏的容器 -->
   <div id="navbar-container"></div>
   
   <div class="container">
