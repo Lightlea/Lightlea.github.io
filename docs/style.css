@@ -401,19 +401,16 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
 }
 
 .popup-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 90vw;  /* 限制最大宽度 */
-    max-height: 90vh; /* 限制最大高度 */
-    overflow: hidden;
-    border-radius: 8px;
-    position: relative;
-     /* 添加响应式适配 */
-     max-width: 90%;  /* 在小屏幕上自动缩小 */
-     max-height: 90vh; /* 防止超出视口高度 */
+    max-width: 80vw;  /* 图片最大宽度不超过视口的 80% */
+    max-height: 80vh; /* 图片最大高度不超过视口的 80% */
+    width: auto; /* 让宽度自适应，保持原始比例 */
+    height: auto; /* 让高度自适应，保持原始比例 */
+    object-fit: contain; /* 保持图片比例，不会拉伸 */
+    border-radius: 8px; /* 圆角 */
+    display: block;
+    margin: auto;
  }
-}
+
 
 .popup-content img {
     max-width: 80vw;  /* 图片最大宽度不超过视口的 80% */
