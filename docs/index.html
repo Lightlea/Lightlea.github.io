@@ -86,55 +86,73 @@
         </div>
     </div>
 
+   
+      
 <!-- 卡片流 -->
+ <div class="section2">
+    <div class="buttons-container2" >
+        <button class="filter-button" data-text="Awesome" onclick="filterWorks('all')">
+            <span class="actual-text">&nbsp;All&nbsp;</span>
+            <span aria-hidden="true" class="hover-text">&nbsp;All&nbsp;</span>
+        </button>
+        <button class="filter-button" data-text="Awesome" onclick="filterWorks('photograph')">
+            <span class="actual-text">&nbsp;Photos&nbsp;</span>
+            <span aria-hidden="true" class="hover-text">&nbsp;Photos&nbsp;</span>
+        </button>
+        <button class="filter-button" data-text="Awesome" onclick="filterWorks('2d')">
+            <span class="actual-text">&nbsp;2D&nbsp;</span>
+            <span aria-hidden="true" class="hover-text">&nbsp;2D&nbsp;</span>
+        </button>
+        <button class="filter-button" data-text="Awesome" onclick="filterWorks('3d')">
+            <span class="actual-text">&nbsp;3D&nbsp;</span>
+            <span aria-hidden="true" class="hover-text">&nbsp;3D&nbsp;</span>
+        </button>
+        <button class="filter-button" data-text="Awesome" onclick="filterWorks('aigc')">
+           <span class="actual-text">&nbsp;AIGC&nbsp;</span>
+            <span aria-hidden="true" class="hover-text">&nbsp;AIGC&nbsp;</span>
+        </button>
+      </div>
 <div class="card-container" id="card-container">
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
+    
+    <div class="card" data-category="2d">
         <img src="asset/image/BalloonpappyJony.png" alt="Card Image 1">
         <h3>Balloonpappy 1</h3>
         <p>Jan. 2025; Adobe Photoshop; Adobe Illustrator;</p>
     </div>
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
+    <div class="card" data-category="2d">
         <img src="asset/image/Balloonpappy11.png"  alt="Card Image 2">
         <h3>Balloonpappy 2</h3>
         <p>Jan. 2025; Adobe Photoshop; Adobe Illustrator;</p>
     </div>
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
+    <div class="card" data-category="2d">
         <img src="asset/image/Balloonpappy9.png"  alt="Card Image 3">
         <h3>Balloonpappy 3</h3>
         <p>Jan. 2025; Adobe Photoshop; Adobe Illustrator;</p>
     </div>
 
 
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
+    <div class="card" data-category="photograph">
         <img src="asset/image/Photographie 11.jpeg"  alt="Card Image 4">
         <h3>Photographie 1</h3>
         <p>Aug. 2023; iPhone 14 Pro; post-traitement Liit;</p>
     </div>
 
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
+    <div class="card" data-category="photograph">
         <img src="asset/image/Photographie 5.jpeg"  alt="Card Image 4">
         <h3>Photographie 2</h3>
         <p>Aug. 2024; iPhone 14 Pro; post-traitement Liit;</p>
     </div>
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
+    <div class="card" data-category="photograph">
         <img src="asset/image/Photographie 9.jpeg"  alt="Card Image 4">
         <h3>Photographie 3</h3>
         <p>Aug. 2023; iPhone 14 Pro; post-traitement Liit;</p>
     </div>
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
+    <div class="card" data-category="photograph">
         <img src="asset/image/Photographie 4.jpeg"  alt="Card Image 4">
         <h3>Photographie 4</h3>
         <p>Aug. 2023; iPhone 14 Pro; post-traitement Liit;</p>
     </div>
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
+    <div class="card" data-category="photograph">
         <img src="asset/image/Photographie 10.jpg"  alt="Card Image 4">
         <h3>Photographie 5</h3>
         <p>Aug. 2023; iPhone 14 Pro; post-traitement Liit;</p>
@@ -142,68 +160,57 @@
 
 
 
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
+    <div class="card" data-category="photograph">
         <img src="asset/image/Photographie 15.jpeg"  alt="Card Image 4">
         <h3>Photographie 6</h3>
         <p>Aug. 2023; iPhone 14 Pro; post-traitement Liit;</p>
     </div>
 
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
+    <div class="card" data-category="photograph">
         <img src="asset/image/Photographie 13.jpeg"  alt="Card Image 4">
         <h3>Photographie 7</h3>
         <p>Aug. 2023; iPhone 14 Pro; post-traitement Liit;</p>
     </div>
 
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
+    <div class="card" data-category="2d">
         <img src="asset/image/poster1.png"  alt="Card Image 4">
         <h3>Poster : Night of the Vibes</h3>
         <p>Jan. 2024; Adobe Photoshop; Adobe Illustrator;</p>
     </div>
 
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
+    <div class="card" data-category="aigc">
         <img src="asset/image/ComfyUI_temp_lascs_00003_.png"  alt="Card Image 5">
         <h3>AIGC 2</h3>
-        <p>Comfy UI; Flux-dev-fp8 (Non-Commercial Use Model);</p>
+        <p>Jan. 2025; Comfy UI; Flux-dev-fp8 (Non-Commercial Use Model);</p>
     </div>
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
+    <div class="card" data-category="aigc">
         <img src="asset/image/ComfyUI_temp_lascs_00005_.png"  alt="Card Image 6">
         <h3>AIGC 1</h3>
-        <p>Comfy UI; Flux-dev-fp8 (Non-Commercial Use Model);</p>
+        <p>Jan. 2025; Comfy UI; Flux-dev-fp8 (Non-Commercial Use Model);</p>
     </div>
     
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed"
-   >
+    <div class="card" data-category="photograph">
         <img src="asset/image/Rodin.jpg"  alt="Card Image 4">
         <h3>Photographie 8</h3>
-        <p>Mai. 2024; iPhone 14 Pro; post-traitement Liit;</p>
+        <p>May. 2024; iPhone 14 Pro; post-traitement Liit;</p>
     </div>
 
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed"
-    >
+    <div class="card" data-category="photograph">
         <img src="asset/image/Photographie 2.jpeg"  alt="Card Image 4">
         <h3>Photographie 9</h3>
-        <p>Mai. 2024; iPhone 14 Pro; post-traitement Liit;</p>
+        <p>May. 2024; iPhone 14 Pro; post-traitement Liit;</p>
     </div>
 
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
+    <div class="card" data-category="photograph">
     <img src="asset/image/Photographie 3.jpeg"   alt="Card Image 4">
     <h3>Photographie 10</h3>
-    <p>Mai. 2024; iPhone 14 Pro; post-traitement Liit;</p>
+    <p>May. 2024; iPhone 14 Pro; post-traitement Liit;</p>
 </div>
 
 
    
 
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed"
+    <div class="card" data-category="2d"
     style="width: 250px; height: 300px;">
     
         <img src="asset/image/kitteninpixel.png"  alt="Card Image 4"
@@ -211,43 +218,62 @@
         <h3>Pixel art 2</h3>
         <p>Aug. 2023; Krita;</p>
     </div>
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
+    <div class="card" data-category="2d">
         <img src="asset/image/Venezuelan Poodle Moth.png"  alt="Card Image 4" >
         <h3>Works 1</h3>
         <p>Aug. 2020; Adobe Photoshop;</p>
     </div>
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
-        <img src="asset/image/Photographie 18.jpeg"  alt="Card Image 4">
+    <div class="card" data-category="photograph">
+        <img src="asset/image/Photographie 24.jpg"  alt="Card Image 4">
         <h3>Photographie 11</h3>
-        <p>Aug. 2023; iPhone 14 Pro; post-traitement Liit;</p>
+        <p>Jan. 2025; iPhone 14 Pro; post-traitement Liit;</p>
     </div>
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
-        <img src="asset/image/Photographie 19.jpeg"  alt="Card Image 4">
+
+    <div class="card" data-category="photograph">
+        <img src="asset/image/Photographie 27.jpg"  alt="Card Image 4">
         <h3>Photographie 12</h3>
+        <p>Jan. 2025; iPhone 14 Pro; post-traitement Liit;</p>
+    </div>
+
+    <div class="card" data-category="photograph">
+        <img src="asset/image/Photographie 18.jpeg"  alt="Card Image 4">
+        <h3>Photographie 13</h3>
         <p>Aug. 2023; iPhone 14 Pro; post-traitement Liit;</p>
     </div>
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
-        <img src="asset/image/Photographie 22.jpeg"  alt="Card Image 4">
-        <h3>Photographie 13</h3>
-        <p>Mai. 2024; iPhone 14 Pro; post-traitement Liit;</p>
-    </div>
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
-        <img src="asset/image/Photographie 23.jpeg"  alt="Card Image 4">
+    <div class="card" data-category="photograph">
+        <img src="asset/image/Photographie 19.jpeg"  alt="Card Image 4">
         <h3>Photographie 14</h3>
-        <p>Mai. 2024; iPhone 14 Pro; post-traitement Liit;</p>
-    </div><div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed">
-        <img src="asset/image/Photographie 21.jpeg"  alt="Card Image 4">
+        <p>Aug. 2023; iPhone 14 Pro; post-traitement Liit;</p>
+    </div>
+    <div class="card"data-category="photograph">
+        <img src="asset/image/Photographie 22.jpeg"  alt="Card Image 4">
         <h3>Photographie 15</h3>
         <p>Mai. 2024; iPhone 14 Pro; post-traitement Liit;</p>
     </div>
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed"
+    <div class="card" data-category="photograph">
+        <img src="asset/image/Photographie 23.jpeg"  alt="Card Image 4">
+        <h3>Photographie 16</h3>
+        <p>May. 2024; iPhone 14 Pro; post-traitement Liit;</p>
+    </div>
+    
+    <div class="card" data-category="photograph">
+        <img src="asset/image/Photographie 21.jpeg"  alt="Card Image 4">
+        <h3>Photographie 17</h3>
+        <p>May. 2024; iPhone 14 Pro; post-traitement Liit;</p>
+    </div>
+    
+   
+    <div class="card" data-category="photograph">
+        <img src="asset/image/Photographie 25.jpg"  alt="Card Image 4">
+        <h3>Photographie 18</h3>
+        <p>Jan. 2025; iPhone 14 Pro; post-traitement Liit;</p>
+    </div>
+    <div class="card" data-category="photograph">
+        <img src="asset/image/Photographie 26.jpg"  alt="Card Image 4">
+        <h3>Photographie 19</h3>
+        <p>Jan. 2025; iPhone 14 Pro; post-traitement Liit;</p>
+    </div>
+    <div class="card" data-category="2d"
     style="width: 250px; height: 350px;">
         <img src="asset/image/deerinpixel.png"  alt="Card Image 4"
         style="width: 170px; height: 250px;">
@@ -255,15 +281,15 @@
         <p>Aug. 2023; Krita;</p>
     </div>
 
-    <div class="card" data-image="asset/image/wenquan.jpeg" 
-    data-title="Card Title 1" data-description="This is a detailed"
+    <div class="card" data-category="2d"
     style="width: 250px; height: 300px;">
         <img src="asset/image/wenquan.png"  alt="Card Image 4"
         style="width: 170px; height: 170px;">
         <h3>Pixel art 1</h3>
-        <p>Jun. 2020; Adobe Photoshop;</p>
+        <p>Jan. 2020; Adobe Photoshop;</p>
     </div>
     <!-- 添加更多卡片 -->
+</div>
 </div>
 
       <!-- Popup -->
@@ -338,8 +364,8 @@
         const imageSrc = card.querySelector("img").src; // 直接获取 img 的 src
         popupImg.src = imageSrc;
  // JS 额外设置最小最小尺寸
-        popupImg.style.minWidth = "500px";
-        popupImg.style.minHeight = "500px";
+        popupImg.style.minWidth = "200px";
+        popupImg.style.minHeight = "200px";
         popupImg.style.maxWidth = "80vw";   
         popupImg.style.maxHeight = "80vh";  
         popup.style.display = "flex";
@@ -378,7 +404,26 @@
         document.getElementById('scrollButton').addEventListener('click', function () {
             document.getElementById('card-container').scrollIntoView({ behavior: 'smooth' });
         });
-  
+        function filterWorks(category) {
+  // 移除所有按钮的激活状态
+  document.querySelectorAll('.filter-button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  // 为当前按钮添加激活状态
+  event.target.closest('.filter-button').classList.add('active');
+
+  // 筛选卡片显示逻辑
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    if (category === 'all' || card.getAttribute('data-category') === category) {
+      card.style.display = 'inline-block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
 </script>
 
     

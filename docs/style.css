@@ -288,6 +288,7 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
         
     }
 
+
     .img-list {
         left: 0;
         transition: left 2s ease; /* 添加过渡效果 */
@@ -313,7 +314,74 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
             transform: translateX(calc(-100%));
         }
     }
+    .section2 {   
+        background-color: rgb(10, 10, 10);
+        padding-top: 150px; }
 
+    .buttons-container2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center; /* 水平居中按钮 */
+        gap: 100px; /* 设置按钮间距 */
+        margin-top: 20px; /* 与 section2 上方有间距 */
+        width: 100%; /* 自适应宽度 */
+        flex-wrap: wrap; /* 保证在小屏幕时不溢出 */
+        position: relative;
+        z-index: 10;
+      }
+      
+
+/* 单个按钮样式（如果希望和原来有所不同，可在此调整） */
+.filter-button {
+    margin: 0;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+  }
+.filter-button {
+    --border-right: 6px;
+  --text-stroke-color: rgba(255,255,255,0.6);
+  --animation-color: #ff3967;
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+  }
+  
+  /* 鼠标悬停与激活时的样式 */
+  .hover-text  {position: absolute;
+    box-sizing: border-box;
+    content: attr(data-text);
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--animation-color);}
+
+  .filter-button:hover .hover-text,
+  .filter-button.active .hover-text
+  {
+    width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color))
+  }
+  /* 移除默认点击效果 */
+.filter-button:active .hover-text {
+    width: 100% !important; /* 保持点击瞬间的动画不中断 */
+  }
+  .filter-button.active {
+    border-color: var(--animation-color); /* 绿色边框指示激活状态 */
+  }
+ 
+  
+ 
     .card-container {
          /* 使用 CSS 多栏布局，实现瀑布流效果 */
         column-count: 4;
@@ -352,7 +420,7 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
 .card h3 {
     font-size: 18px;
     margin: 10px 0;
-    color: #333;
+    color: #666;
 }
 
 .card p {
@@ -379,11 +447,19 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
       column-count: 2;
     }
   }
+  .buttons-container2 {
+   
+    align-items: center;
+  }
   
   @media (max-width: 480px) {
     .card-container {
       column-count: 1;
     }
+    .buttons-container2 {
+        flex-direction: column;
+        align-items: center;
+      }
   }
 
 /* 弹窗样式 */
