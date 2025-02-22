@@ -154,14 +154,11 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
 /* 鼠标悬停时的样式 */
 .cv-button:hover, .works-button:hover, .projects-button:hover {
     background: linear-gradient(0deg,  #ff096b 0%, #ff0a43 100%);
-    color: rgb(12, 12, 12);
-    border-color: rgb(12, 12, 12);
+    color:rgb(20, 20, 20);
+    border: none;
 }
 
-/* 鼠标点击时的样式 */
-.cv-button:active, .works-button:active, .projects-button:active {
-    transform: scale(0.95); 
-}
+
 
 
     .scroll {    
