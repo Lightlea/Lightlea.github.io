@@ -442,15 +442,53 @@
     }
   });
 }
+  // 页脚
+  window.addEventListener('scroll', function() {
+    var footer = document.getElementById('footer');
+    var scrollHeight = document.documentElement.scrollHeight; // 页面总高度
+    var scrollPosition = window.innerHeight + window.scrollY; // 当前滚动位置
+
+    if (scrollPosition >= scrollHeight - 10) {  // 滚动到页面底部，显示页脚（10像素缓冲）
+        footer.classList.add('show');  // 加上 'show' 类，显示页脚
+    } else {
+        footer.classList.remove('show');  // 移除 'show' 类，隐藏页脚
+    }
+});
+
 
 </script>
 
     
 </body>
-<!--Footer -->
-<div class="footer">
-    <p>© Some of the code implementations on this page are based on <a href="https://gitee.com/mao-yongyao/elliptical-rotation-chart/tree/master" target="_blank" class="footer-link">This Project</a> and is licensed under the GNU General Public License (GPL) Version 2.</p>
+
+<!-- Footer -->
+<div id="footer" class="footer" >
+    <p> 🌷 Thanks for stopping by! Here's more about me if you're interested ;) </p>
+ <p style="font-size: 14px;">© Some of the code implementations on this page are based on 
+    <a href="https://gitee.com/mao-yongyao/elliptical-rotation-chart/tree/master" target="_blank" class="footer-link">This Project</a> 
+    and is licensed under GPL V.2</p>
+    <!-- 底部的项目和连接部分 -->
+    <div class="footer-columns">
+        <!-- SELECTED PROJECTS 部分 -->
+        <div class="column">
+            <p><strong>SELECTED PROJECTS:</strong></p>
+            <p><a href="mobygames.html">Web UI: MobyGames</a></p>
+            <p><a href="NaNo Ring.html">Mobile UI: Nano Ring</a></p>
+            <p><a href="salondethe.html">Web UI: Salon de thé</a></p>
+            <p><a href="weisnight.html">Video Game UI: Wei's night</a></p>
+            <p><strong>LET'S CONNECT:</strong></p>
+            <p><a href="www.linkedin.com/in/lin-z-47085b297">LinkedIn</a></p>
+            <p><a href="LinZHUO.2000@outlook.com">Email</a></p>
+            <p><a href="https://www.instagram.com/pixeldoughdesign?igsh=MWt4dm10dnEzcG0wNg%3D%3D&utm_source=qr">Instagram</a></p>
+            <p><a href="https://www.behance.net/chuanguang">Behance</a></p>
+        </div>
+
+       
+    </div>
+
+   
 </div>
+
 </div>
 
 </html>

@@ -522,34 +522,78 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
     bottom: 0;
     left: 0;
     width: 100%;
+    text-align: center;
     background-color: #333;
     color: white;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 14px;
+    padding: 20px 10px;
+    font-size: 20px;
     z-index: 1000;  /* 确保在其他内容之上 */
+    visibility: hidden; /* 默认隐藏 */
+    opacity: 0;  /* 默认透明 */
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* 平滑过渡效果 */
+}
+.footer.show {
+    visibility: visible; /* 滚动到页面底部时显示 */
+    opacity: 1;  /* 滚动到页面底部时显示完全不透明 */
 }
 
-.footer p {
-    margin: 0;
-    padding: 0;
+/* 底部两列布局，横排显示 */
+.footer-columns {
+    display: flex;
+    justify-content: center;  /* 居中显示两列内容 */
+    margin-top: 5px;
+    flex-wrap: wrap;  /* 内容溢出时换行 */
+    gap: 2px; /* 控制两列之间的间距 */
 }
 
-/* 可选：让 footer 在悬停时显示不同的效果 */
+/* 每一列的样式，确保列是横排的 */
+.footer-columns .column {
+    flex: 1 1 300px;  /* 每列宽度相等，且最小宽度为 300px */
+    margin: 0 10px;  /* 列之间的间距 */
+}
+
+
+
+/* 链接的样式 */
+.footer-columns .column a {
+    text-decoration: none;
+    color: #f00056;  
+    font-weight: normal; 
+    font-size: 14px; 
+    display: inline-block; /* 使链接可以像按钮一样显示 */
+    margin-bottom: 1px; 
+}
+.footer-columns .column p {
+    display: inline;  /* 让 p 标签内容与其他内容水平排列 */
+    margin-right: 10px;  /* 设置 p 标签和链接之间的间距 */
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* 链接的 hover 样式 */
+.footer-columns .column a:hover {
+    color: #f96f9f;  
+}
+
+
+
+
 .footer:hover {
     background-color: #000000;
     color: #fff;
     transition: all 0.3s ease;
 }
+
+
 .footer-link {
-    color:  #ff096b;  /* 设置链接的正常颜色 */
+    color:  #ff096b;  
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
-/* 鼠标悬停时的颜色变化 */
+
 .footer-link:hover {
-    color: #f00056; /* 鼠标悬停时的颜色 */
+    color: #f00056; 
     text-decoration: underline;
 }
