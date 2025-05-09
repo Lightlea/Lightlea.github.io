@@ -62,6 +62,16 @@
         box-shadow: none;
       }
     }
+    p.custom-text {
+  color: #9e9e9e; /* 深灰色 */
+  font-size: 14px;
+  text-align: left; /* 左对齐 */
+  margin-left: 100px;
+  margin-right: 100px;
+      width: 100%;
+
+}
+
   </style>
 </head>
 <body>
@@ -109,16 +119,26 @@
     <div class="image-container">
       <img src="asset/image/nano_personea0.png" alt="产品3">
     </div>
+    <p class="custom-text">
+      Les textes des personas ont été rédigés par mon camarade Caroline ; Je me suis uniquement occupé de la mise en page.<br>
+      Les composants open source utilisés, en respectant scrupuleusement les licences associées. Remercie les créateurs pour leurs travails.
+    </p>
     
-    <div class="footer">
-      <p>
-        Les textes des personas ont été rédigés par mon camarade Caroline ; Je me suis uniquement occupé de la mise en page.<br>
-        Les composants open source utilisés, en respectant scrupuleusement les licences associées. Remercie les créateurs pour leurs travails.
-      </p>
-    </div>
-  </div>
-  
-  <script>
+  </div> <div id="footer-placeholder"></div>
+</div>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+      // 显示 footer（可选）
+      setTimeout(() => {
+        const footer = document.querySelector('.footer');
+        if (footer) footer.classList.add('show');
+      }, 300);
+    })
+    .catch(error => console.error('Footer load error:', error));
+
     // 动态加载 navbar.html 内容到页面中
     fetch('navbar.html')
       .then(response => response.text())

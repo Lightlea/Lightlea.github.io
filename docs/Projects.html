@@ -10,14 +10,11 @@
     a {
       text-decoration: none;
     }
-    a:visited {
-      color: rgba(0, 0, 0);
-    }
-    a:active {
+    a:visited, a:active {
       color: rgba(0, 0, 0);
     }
     a:hover {
-      color:  #ff096b ;
+      color: #ff096b;
     }
 
     :root {
@@ -33,12 +30,16 @@
       --card-height: 600px;
     }
 
-    body {
+    /* 将 html 和 body 的 margin 和 padding 设为 0 */
+    html, body {
       margin: 0;
       padding: 0;
-      height: 100vh;
-      overflow-y: auto;
       font-family: var(--font-family);
+      height: 100%; /* 保证页面可以占满整个视口 */
+    }
+
+    body {
+      padding-top: 0; 
     }
 
     #navbar {
@@ -51,23 +52,22 @@
     }
 
     .container {
-      scroll-snap-type: y mandatory;
-      overflow-x: hidden;
-    }
+  scroll-snap-type: y mandatory;
+  overflow-x: hidden;
+  min-height: 100vh; /* 确保容器填满整个视口 */
+  display: flex;
+  flex-direction: column;}
 
-    /* section1 样式 */
     .section1 {
       width: 100%;
-      min-height: 100%;
+      min-height: 100vh; /* 使其填充整个视口 */
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
       align-items: center;
       background-color: rgb(15, 15, 15);
-      margin: 0;
-      position: relative;
       padding: 20px;
-      color: white;
+      color: rgb(0, 0, 0);
+      margin: 0; /* 确保 section 没有外边距 */
     }
 
     .welcometextbig {
@@ -75,24 +75,18 @@
       font-size: calc(60px + 2vw);
       margin-top: 5%;
       margin-bottom: 50px;
-      background: linear-gradient(0deg,  #ff096b 0%, #ff0a43 100%);
+      background: linear-gradient(0deg, #ff096b 0%, #ff0a43 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    /* gallery 样式 */
-    
     .gallery {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: var(--gap);
-      padding: var(--padding);
-      margin: 0 auto;
       width: 100%;
     }
-
-    
 
     .card {
       background-image: var(--card-background);
@@ -101,28 +95,32 @@
       width: 1000px;
       height: 600px;
       padding: 20px;
-      text-align: left;
-      /* 将过渡时间延长，并采用 ease-in-out */
-      transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out, filter 0.5s ease-in-out;
-      overflow: hidden;
       display: flex;
       flex-direction: row;
       align-items: center;
       cursor: pointer;
+      transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out, filter 0.5s ease-in-out;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     }
 
     .card img {
-      width: 50%;
+      width: 60%;
       height: auto;
       display: block;
       border-radius: 8px;
       margin-bottom: 10px;
     }
+
     .small-img {
-    transform: scale(0.8);
-    display: block; /* 避免 inline 间隙 */
-    margin: auto; /* 确保居中 */
-}
+      transform: scale(0.8);
+      display: block;
+      margin: auto;
+    }
 
     .card-content {
       flex: 1;
@@ -131,7 +129,6 @@
       justify-content: center;
       padding-left: 20px;
       padding-right: 100px;
-     
     }
 
     .card h3 {
@@ -142,18 +139,11 @@
     }
 
     .card p {
-      font-size: 24px;
+      font-size: 18px;
       color: #9d9d9d;
       line-height: 1.5;
     }
 
-    .card:hover {
-      /* hover时依然保留向上位移效果 */
-      transform: translateY(-10px);
-      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    /* 导航栏样式 */
     .transparent-navbar {
       position: fixed;
       top: 0;
@@ -162,7 +152,6 @@
       padding: 10px 0;
       z-index: 999;
       backdrop-filter: blur(5px);
-      font-family: Arial, sans-serif;
     }
 
     .transparent-navbar ul {
@@ -178,7 +167,6 @@
     }
 
     .transparent-navbar ul li a {
-      text-decoration: none;
       color: white;
       font-size: 18px;
       font-weight: bold;
@@ -187,10 +175,9 @@
     }
 
     .transparent-navbar ul li a:hover {
-      color:  #ff096b ;
+      color: #ff096b;
     }
 
-    /* Fade-in 动画效果（初始加载） */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -201,9 +188,73 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Footer 样式 */
+    .footer {
+  width: 100%;
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 20px 10px;
+  font-size: 20px;
+  margin-top: 0; /* 去掉多余的 margin */
+  position: relative; /* 使 footer 定位 */
+}
+
+    .footer-columns {
+      display: flex;
+      justify-content: center;
+      margin-top: 5px;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+
+    .footer-columns .column {
+      flex: 1 1 300px;
+      margin: 0 10px;
+    }
+
+    .footer-columns .column a {
+      text-decoration: none;
+      color: #f00056;
+      font-weight: normal;
+      font-size: 14px;
+      display: inline-block;
+      margin-bottom: 1px;
+    }
+
+    .footer-columns .column p {
+      display: inline;
+      margin-right: 10px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .footer-columns .column a:hover {
+      color: #f96f9f;
+    }
+
+    .footer:hover {
+      background-color: #000000;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .footer-link {
+      color: #ff096b;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: #f00056;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
+
   <!-- 导航栏 -->
   <nav class="transparent-navbar" id="navbar">
     <ul>
@@ -213,41 +264,29 @@
     </ul>
   </nav>
 
+  <!-- 主内容 -->
   <div class="container">
-    <!-- section1 -->
     <div class="section1">
-      <div class="welcometextbig">
-        PORTFOLIO
-      </div>
-      <!-- gallery 在 section1 内部 -->
+      <div class="welcometextbig">PORTFOLIO</div>
       <div class="gallery">
-        <div class="card">
-          <img src="asset/image/nano_card.png" alt="Artwork" />
+        <div class="card" data-link="mobygames.html">
+          <img class="small-img" src="asset/image/mobymockup.png" alt="Moby_logo" />
+          <div class="card-content">
+            <h3>Web UI</h3>
+            <p>Refonte de l’interface utilisateur d’un site appelé MobyGames, dans le cadre d’un projet pour le cours Hypermédia et Web sémantique.</p>
+          </div>
+        </div>
+
+        <div class="card" data-link="NaNo Ring.html">
+          <img src="asset/image/nano_card.png" alt="Nano_ring" />
           <div class="card-content">
             <h3>App Mobile</h3>
-            <p>
-              UI Design pour l'application mobile associée à une bague connectée.
-              <br>
-              Réalisé avec Figma, Adobe Illustrator et Adobe Photoshop.
-            </p>
+            <p>UI Design pour l'application mobile associée à une bague connectée.<br>Réalisé avec Figma, Adobe Illustrator et Adobe Photoshop.</p>
           </div>
         </div>
-        <div class="card">
-          <img class="small-img" src="asset/image/Balloonpappy3.png" alt="Artwork" />
-          <div class="card-content">
-            <h3>Coming Soon</h3>
-            <p>🚧 En cours de mise en page... 🚧</p>
-          </div>
-        </div>
-        <div class="card">
-          <img class="small-img" src="asset/image/Balloonpappy4.png" alt="Artwork" />
-          <div class="card-content">
-            <h3>Coming Soon</h3>
-            <p>💭 En phase de conception... 💭</p>
-          </div>
-        </div>
-        <div class="card">
-          <img class="small-img" src="asset/image/Balloonpappy2.png" alt="Artwork" />
+
+        <div class="card" style="margin-bottom: 150px;">
+          <img class="small-img" src="asset/image/Balloonpappy4.png" alt="Coming Soon" />
           <div class="card-content">
             <h3>Coming Soon</h3>
             <p>💭 En phase de conception... 💭</p>
@@ -257,21 +296,46 @@
     </div>
   </div>
 
+  <!-- Footer -->
+  <div id="footer" class="footer">
+    <p>🌷 Thanks for stopping by! Here's more about me if you're interested ;)</p>
+
+    <p style="font-size: 14px;">
+      © Some of the code implementations on this page are based on 
+      <a href="https://gitee.com/mao-yongyao/elliptical-rotation-chart/tree/master" target="_blank" class="footer-link">
+        This Project
+      </a> and is licensed under GPL V.2
+    </p>
+
+    <div class="footer-columns">
+      <div class="column">
+        <p><strong>SELECTED PROJECTS:</strong></p>
+        <p><a href="mobygames.html">Web UI: MobyGames</a></p>
+        <p><a href="NaNo Ring.html">Mobile UI: Nano Ring</a></p>
+
+        <p><strong>LET'S CONNECT:</strong></p>
+        <p><a href="https://www.linkedin.com/in/lin-z-47085b297/">LinkedIn</a></p>
+        <p><a href="mailto:lin.zhuo@etud.univ-paris8.fr">Email</a></p>
+        <p><a href="https://github.com/Lightlea">GitHub</a></p>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // 导航栏滚动隐藏效果
     const navbar = document.getElementById('navbar');
-    const navbarHeight = navbar.offsetHeight;
+    const cards = document.querySelectorAll('.card');
+
+    // 导航栏滚动隐藏
     window.addEventListener('scroll', function () {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       if (scrollTop > window.innerHeight * 0.5) {
-        navbar.style.top = `-${navbarHeight}px`;
+        navbar.style.top = `-${navbar.offsetHeight}px`;
       } else {
         navbar.style.top = "0";
       }
     });
 
-    // 为卡片添加 fade-in 动画效果（初始加载）
-    const cards = document.querySelectorAll('.card');
+    // IntersectionObserver 实现卡片 fade-in 动画
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -280,40 +344,40 @@
         }
       });
     }, { threshold: 0.1 });
+
     cards.forEach(card => {
       card.classList.add('fade-in');
       observer.observe(card);
     });
 
-    // 新增动态效果：根据卡片距离视口中心的距离平滑调整模糊和缩放效果
+    // 滚动时动态模糊/缩放
     window.addEventListener('scroll', () => {
-  const viewportHeight = window.innerHeight;
-  const centerY = viewportHeight / 2;
-  const maxDistance = 600; // 当距离达到...时达到最大效果
-  cards.forEach(card => {
-    const rect = card.getBoundingClientRect();
-    const cardCenterY = rect.top + rect.height / 2;
-    const distance = Math.abs(cardCenterY - centerY);
-    const normalized = Math.min(distance / maxDistance, 1);
-    // 中心卡片保持 scale = 1；远离中心的卡片缩放至0.8（减少20%）
-    const dynamicScale = 1 - 0.2 * normalized;
-    // 远离中心的卡片模糊最多 2px；中心无模糊
-    const dynamicBlur = normalized * 2;
-    card.style.filter = `blur(${dynamicBlur}px)`;
-    card.style.transform = `scale(${dynamicScale})`;
+      const viewportHeight = window.innerHeight;
+      const centerY = viewportHeight / 2;
+      const maxDistance = 600;
+
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const cardCenterY = rect.top + rect.height / 2;
+        const distance = Math.abs(cardCenterY - centerY);
+        const normalized = Math.min(distance / maxDistance, 1);
+        const dynamicScale = 1 - 0.2 * normalized;
+        const dynamicBlur = normalized * 2;
+        card.style.filter = `blur(${dynamicBlur}px)`;
+        card.style.transform = `scale(${dynamicScale})`;
       });
     });
-   
-  // 获取第一张卡片
-  const firstCard = document.querySelector(".gallery .card");
 
-  // 监听点击事件，跳转至 NaNo Ring.html
-  firstCard.addEventListener("click", function () {
-    window.location.href = "NaNo Ring.html";
-  });
-  
-
-
+    // 点击跳转
+    cards.forEach(card => {
+      const link = card.dataset.link;
+      if (link) {
+        card.addEventListener("click", (e) => {
+          e.stopPropagation();
+          window.location.href = link;
+        });
+      }
+    });
   </script>
 </body>
 </html>
