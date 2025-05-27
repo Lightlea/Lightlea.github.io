@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site web officiel Chez Ceramat</title>
+  <style>
+    /* 全局重置 */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family:  "Helvetica", Arial, sans-serif;
+    }
+    /* 主要内容容器 */
+    .container {
+      padding: 20px;
+      text-align: center;
+    }
+    .container2 {
+      margin-top: 5%;
+      padding: 10px;
+      text-align: center;
+    }
+    /* 图片容器：默认状态下每个容器宽度固定，居中显示 */
+    .image-container {
+      background-color: white;
+      display: inline-block;
+      padding: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 600px;  /* 默认图片最大宽度 */
+    }
+    /* 大图容器：在默认状态下可更宽 */
+    .large-image {
+      max-width: 1225px;
+    }
+    /* 图片默认样式：宽度100%，保持比例 */
+    .image-container img,
+    .large-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    /* 页脚样式 */
+    .footer {
+      margin-top: 20px;
+      padding: 10px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+    /* 响应式设计：当窗口宽度小于768px时 */
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+      .image-container {
+        /* 宽度全屏显示，同时减少内边距 */
+        width: 100%;
+        max-width: 100%;
+        padding: 5px;
+        margin: 0 auto 20px;
+        box-shadow: none;
+      }
+    }
+   
+p.custom-text {
+  color: #0d0d0d;           /* 深灰色 */
+  font-size: 16px;
+  text-align: left;
+  line-height: 1.6;         /* 增加行距 */
+  max-width: 800px;         /* 最大宽度 */
+  margin: 0 auto 20px;      /* 居中对齐且与其他元素有间距 */
+  padding: 0 20px;          /* 小内边距防止文字贴边 */
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- 动态加载导航栏的容器 -->
+  <div id="navbar-container"></div>
+  
+
+    
+   
+
+  <div class="container">
+    <div class="container2"> 
+    <h1>Site Web Officiel Chez Ceramat</h1>
+    <h2>Type: Site E-commerce </h2>
+    <h2></h2>
+    <p class="custom-text">
+      C'est un projet virtuel à des fins de test, à titre de référence uniquement. 
+      Object est de créer d'un site site e-commerce pour permettre la consultation des produits et 
+      leur achat en ligne, tout en offrant une expérience utilisateur fluide et professionnelle,
+      afin d'élargir l’audience et augmenter les ventes grâce à un canal de distribution numérique.
+    </p>
+    <div class="image-container large-image">
+      <img src="asset/image/ceramat_site.png" alt="ceramat_site.png">
+    </div>
+ 
+    
+  </div> <div id="footer-placeholder"></div>
+</div>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+      // 显示 footer（可选）
+      setTimeout(() => {
+        const footer = document.querySelector('.footer');
+        if (footer) footer.classList.add('show');
+      }, 300);
+    })
+    .catch(error => console.error('Footer load error:', error));
+
+    // 动态加载 navbar.html 内容到页面中
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        // 假设 navbar.html 文件包含完整的 <nav class="transparent-navbar">...</nav>
+        document.getElementById('navbar-container').innerHTML = data;
+  
+        // 获取加载后的导航栏元素，并添加滚动隐藏效果
+        const navbar = document.querySelector('.transparent-navbar');
+        if (navbar) {
+          const navbarHeight = navbar.offsetHeight;
+          window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            navbar.style.top = (scrollTop > window.innerHeight * 0.5) ? `-${navbarHeight}px` : "0";
+          });
+        }
+      })
+      .catch(error => console.log('Error loading the navbar:', error));
+  </script>
+</body>
+</html>
