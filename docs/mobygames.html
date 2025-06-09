@@ -173,6 +173,34 @@
   height: auto;
   display: block;
 }
+@media (max-width: 600px) {
+  .image-container {
+    padding: 0.5rem;
+  }
+
+  .image-container img {
+    width: 100% !important;   /* 关键：图片自适应屏幕宽度 */
+    height: auto !important;
+    max-width: 100%;
+    border-radius: 6px;
+  }
+
+  h2 {
+    font-size: 1.2rem; /* 更小标题字体 */
+  }
+
+  .section-title {
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+  }
+
+  body {
+    padding: 50px 12px;
+    font-size: 14px;
+  }
+}
+
   </style>
 </head>
 <body>

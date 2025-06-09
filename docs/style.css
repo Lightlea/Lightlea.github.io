@@ -38,8 +38,8 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
             padding: 2px;
             flex-wrap: wrap;
             position:relative;
-            margin-top:200px;
-            margin-bottom: 600px;
+            margin-top:150px;
+            margin-bottom: 50px;
             
             
         }
@@ -55,10 +55,11 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
         
         
         .ZHUO{
-            color: hsl(0, 0%, 100%);;
+            color: hsl(0, 0%, 100%);
+          font-size: 68px;
             
         }
-        .pinky{
+        .pinky{         font-size: 68px;
             background: linear-gradient(0deg,  #ff096b 0%, #ff0a43 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -128,6 +129,31 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
                 flex-direction: column;
                 align-items: flex-start;
             }
+            .ZHUO {
+  font-size: 20px;}
+.message {
+  font-size: 18px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+}
+.buttons-container {
+  flex-direction: row; /* 横向排列 */
+  justify-content: center; /* 居中对齐 */
+  flex-wrap: wrap; /* 如果太挤就换行 */
+  gap: 5px; /* 按钮之间稍微留点空 */
+  width: 100%;
+  margin: 10px auto 0;
+}
+
+.cv-button, .works-button, .projects-button {
+  width: 70px;        /* 减小宽度 */
+  height: 30px;       /* 减小高度 */
+  font-size: 12px;    /* 更小的字体 */
+  padding: 2px 5px;   /* 减少内边距 */
+}
+
+
         }
 
 
@@ -218,8 +244,8 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
 #banner {
     pointer-events: none;
     overflow: hidden;
-    position: absolute;
-    top: 50%;
+    position: relative; 
+    margin-top: 20px;   /* 添加与按钮组的距离 */
     width: 100vw;
     height: calc(var(--post-size) / 0.72);
     mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDQwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDE0NDAgNTAwIiBpZD0iaiI+CiAgPHBhdGggZmlsbD0icmdiKDIwMCwyMDAsMjAwKSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMCAwczI3NS4wNCAxMDAgNzIwIDEwMFMxNDQwIDAgMTQ0MCAwdjUwMHMtMjc1LjA0LTEwMC03MjAtMTAwUzAgNTAwIDAgNTAwVjB6Ii8+Cjwvc3ZnPgo=);
@@ -439,12 +465,16 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
     .card-container {
       column-count: 3;
     }
+    .ZHUO {font-size: 68px;}
+    .pinky {font-size: 68px;}
   }
   
   @media (max-width: 768px) {
     .card-container {
       column-count: 2;
     }
+     .ZHUO {font-size: 68px;}
+    .pinky {font-size: 68px;}
   }
   .buttons-container2 {
    
@@ -459,6 +489,8 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
         flex-direction: column;
         align-items: center;
       }
+       .ZHUO {font-size: 68px;}
+    .pinky {font-size: 68px;}
   }
 
 /* 弹窗样式 */
@@ -598,4 +630,156 @@ color: rgba(49, 14, 1, 0.868); /* 确保链接颜色统一 */
 .footer-link:hover {
     color: #f00056; 
     text-decoration: underline;
+}
+@media (max-width: 600px) {
+  body {
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden;
+  }
+
+  .father {
+    flex-direction: column;
+    align-items: center;
+    margin: 80px 20px 20px;
+  }
+
+  .buttons-container {
+    flex-direction: row;          /* 横排排列 */
+    justify-content: center;      /* 居中 */
+    flex-wrap: wrap;              /* 自动换行 */
+    gap: 8px;                     /* 间距 */
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+    padding: 0 10px;
+  }
+
+  .cv-button, .works-button, .projects-button {
+    width: 70px;
+    height: 30px;
+    font-size: 12px;
+    padding: 3px 6px;
+    border-radius: 40px;
+    border: 1px solid rgb(110, 110, 110);
+    color: rgb(110, 110, 110);
+    background: transparent;
+  }
+
+  .cv-button:hover, .works-button:hover, .projects-button:hover {
+    background: linear-gradient(0deg, #ff096b 0%, #ff0a43 100%);
+    color: rgb(20, 20, 20);
+    border: none;
+  }
+
+  .ZHUO {
+  font-size: 36px;
+}
+
+.pinky {
+  font-size: 36px;
+}
+
+  .message {
+    font-size: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+  }
+
+  .right-container {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    right: 10px;
+    top: 10px;
+    width: auto;
+  }
+
+  .language-container {
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  .btn-group {
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20%;
+  }
+
+  .buttons-container2 {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .filter-button {
+    --fs-size: 0.9em;
+    --border-right: 3px;
+    padding: 3px 8px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    -webkit-text-stroke: 0.6px var(--text-stroke-color);
+  }
+
+  .filter-button .hover-text {
+    -webkit-text-stroke: 0.6px var(--animation-color);
+  }
+
+  .popup-content img {
+    max-width: 95vw;
+    max-height: 70vh;
+  }
+
+  .close {
+    top: 5%;
+    right: 5%;
+    font-size: 40px;
+  }
+
+  .footer-columns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-columns .column {
+    margin: 10px 0;
+    text-align: center;
+  }
+   .card-container  {
+    padding: 8px;
+    font-size: 12px;
+  }
+  .card {
+  padding: 8px;
+  font-size: 12px;
+  border-radius: 6px;
+
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.card h3 {
+  font-size: 14px;
+  margin: 8px 0 4px;
+}
+
+.card p {
+  font-size: 10px;
+  line-height: 1.4;
+}
+ .footer-columns .column {
+    margin: 10px 0;
+    text-align: center;
+  }
+
 }

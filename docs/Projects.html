@@ -143,6 +143,10 @@
       color: #9d9d9d;
       line-height: 1.5;
     }
+    .card:last-child {
+  margin-bottom: 60px;
+}
+
 
     .transparent-navbar {
       position: fixed;
@@ -251,6 +255,133 @@
       color: #f00056;
       text-decoration: underline;
     }
+   @media (max-width: 600px) {
+    .gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 水平居中 */
+}
+  .card {
+    flex-direction: row;
+    width: 80vw;
+    height: 120px; /* 固定高度 */
+    padding: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+    overflow: hidden;
+     margin: 0 auto; /* 保证居中 */
+  }
+
+  .card img,
+  .card .small-img {
+    width: 40vw;
+    height: 100%;
+    object-fit: cover; /* 保持裁剪效果 */
+    border-radius: 6px;
+    margin-right: 12px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .card-content {
+    padding: 0;
+    text-align: left;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .card h3 {
+    font-size: 16px;
+    margin: 0 0 6px;
+    line-height: 1.2;
+  }
+
+  .card p {
+    font-size: 8px;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 限制最多显示 3 行 */
+    -webkit-box-orient: vertical;
+  }
+  .card:last-child {
+  margin-bottom: 60px;
+}
+
+   .welcometextbig {
+    font-size: 28px;
+    margin-top: 40px;
+    margin-bottom: 24px;
+  }
+  
+  .transparent-navbar {
+    padding: 6px 0;
+  }
+
+  .transparent-navbar ul {
+    flex-direction: row;       /* 保持横向排布 */
+    justify-content: center;   /* 水平居中 */
+    gap: 10px;                 /* 项目间隔 */
+    flex-wrap: wrap;           /* 如果空间不够可以自动换行 */
+  }
+
+  .transparent-navbar ul li {
+    margin: 0 4px;             /* 缩小间距 */
+  }
+
+  .transparent-navbar ul li a {
+    font-size: 10px;           /* 缩小字体 */
+    padding: 4px 6px;          /* 缩小内边距 */
+  }
+  .section1 {
+  min-height: 100vh;
+  justify-content: flex-start; /* 避免过度垂直居中 */
+}
+
+.footer {
+  padding: 12px 10px 8px;
+  font-size: 10px;
+  line-height: 1.4;
+  text-align: center;
+  background-color: #222; /* 更深些更现代 */
+}
+
+.footer-columns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.footer-columns .column {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-columns .column p {
+  margin: 6px 0 2px;
+  font-weight: bold;
+  font-size: 8px;
+}
+
+.footer-columns .column a {
+  font-size: 8px;
+  margin-bottom: 4px;
+  color: #f00056;
+}
+
+.footer-columns .column a:hover {
+  color: #f00056;
+  text-decoration: underline;
+}
+
+}
+
+
+
+
   </style>
 </head>
 <body>
@@ -285,7 +416,7 @@
           </div>
         </div>
 
-          <div class="card" style="margin-bottom: 150px;" data-link="ceramat_site.html">
+          <div class="card"  data-link="ceramat_site.html">
           <img class="small-img" src="asset/image/ceramat_site.png" alt="ceramat" />
           <div class="card-content">
             <h3>Site E-commerce</h3>
@@ -297,9 +428,7 @@
        
       </div>
     </div>
-  </div>
-
-    <div class="card" style="margin-bottom: 150px;" data-link="salondethe.html">
+     <div class="card"  data-link="salondethe.html">
           <img class="small-img" src="asset/image/siteweb_serenithe.png" alt="serenitheparis" />
           <div class="card-content">
             <h3>Site E-commerce</h3>
@@ -312,11 +441,14 @@
       </div>
     </div>
   </div>
+
+   
+
   <!-- Footer -->
   <div id="footer" class="footer">
     <p>🌷 Thanks for stopping by! Here's more about me if you're interested ;)</p>
 
-    <p style="font-size: 14px;">
+    <p>
       © Some of the code implementations on this page are based on 
       <a href="https://gitee.com/mao-yongyao/elliptical-rotation-chart/tree/master" target="_blank" class="footer-link">
         This Project
