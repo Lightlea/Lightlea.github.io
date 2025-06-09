@@ -11,7 +11,8 @@
       background-color: #0f0f0f;
       color: #e0e0e0;
       font-family: 'Inter', sans-serif;
-      padding: 40px 20px;
+      
+      padding: 60px 20px;
       line-height: 1.5;
     }
     header {
@@ -22,6 +23,7 @@
   display: flex;
   justify-content: center;
   padding: 1rem 0;
+  margin-top: 60px; /* 顶部推开同样的高度 */
 }
 
 .logo-img-inner {
@@ -174,6 +176,8 @@
   </style>
 </head>
 <body>
+    <div id="navbar-container"></div>
+
 <div class="centered-container">
   <header>
     <div class="logo-img">
@@ -466,6 +470,26 @@ Absence de modules de résumé “en cartes” : il faut ouvrir plusieurs onglet
       }, 300);
     })
     .catch(error => console.error('Footer load error:', error));
+
+    // 动态加载 navbar.html 内容到页面中
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        // 假设 navbar.html 文件包含完整的 <nav class="transparent-navbar">...</nav>
+        document.getElementById('navbar-container').innerHTML = data;
+  
+        // 获取加载后的导航栏元素，并添加滚动隐藏效果
+        const navbar = document.querySelector('.transparent-navbar');
+        if (navbar) {
+          const navbarHeight = navbar.offsetHeight;
+          window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            navbar.style.top = (scrollTop > window.innerHeight * 0.5) ? `-${navbarHeight}px` : "0";
+          });
+        }
+      })
+      .catch(error => console.log('Error loading the navbar:', error));
+
 </script>
 </body>
 </html>
