@@ -79,6 +79,25 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+ .download-btn {
+  display: inline-block;
+  margin-bottom: 40px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(90deg, #ff096b, #ff0a43);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  background: linear-gradient(90deg, #ff0a43, #ff096b);
+    color: white;
+}
 
     .gallery {
       display: flex;
@@ -398,7 +417,14 @@
   <!-- 主内容 -->
   <div class="container">
     <div class="section1">
+
       <div class="welcometextbig">PORTFOLIO</div>
+
+      <!-- 下载按钮 -->
+<a href="asset/uiuxportfolio_lin_zhuo_alternance.pdf" download class="download-btn">
+👉 📂 Télécharger la version complète du Portfolio (PDF)
+</a>
+
       <div class="gallery">
         <div class="card" data-link="mobygames.html">
           <img class="small-img" src="asset/image/mobymockup.png" alt="Moby_logo" />
